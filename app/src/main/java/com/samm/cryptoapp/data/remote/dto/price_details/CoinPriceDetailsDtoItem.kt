@@ -1,20 +1,19 @@
 package com.samm.cryptoapp.data.remote.dto.price_details
 
-import com.samm.cryptoapp.data.remote.dto.CoinDetailsDto
 import com.samm.cryptoapp.domain.model.CoinPriceDetailsData
 
 data class CoinPriceDetailsDtoItem(
     val beta_value: Double,
-    val circulating_supply: Int,
+    val circulating_supply: Long,
     val first_data_at: String,
     val id: String,
     val last_updated: String,
-    val max_supply: Int,
+    val max_supply: Long,
     val name: String,
     val quotes: Quotes,
     val rank: Int,
     val symbol: String,
-    val total_supply: Int
+    val total_supply: Long
 )
 
 // Map data from DTO to the CoinData data class

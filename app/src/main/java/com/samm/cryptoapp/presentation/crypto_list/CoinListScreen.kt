@@ -1,21 +1,19 @@
 package com.samm.cryptoapp.presentation.crypto_list
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
-import androidx.compose.material.CircularProgressIndicator
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
-import androidx.compose.runtime.Composable
+import androidx.compose.material.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.samm.cryptoapp.presentation.Screen
-import com.samm.cryptoapp.presentation.crypto_list.components.CoinListItem
+import com.samm.cryptoapp.domain.model.CoinData
+import com.samm.cryptoapp.presentation.crypto_list.components.CoinList
+import com.samm.cryptoapp.presentation.crypto_list.components.ResultsTextLabel
+import com.samm.cryptoapp.presentation.crypto_list.components.Title
 import com.samm.cryptoapp.presentation.viewmodel.CoinListViewModel
 
 
@@ -26,43 +24,31 @@ fun CoinListScreen(
 ) {
     val state = viewModel.state.value // state from the viewModel
     val resultsAmount = state.coins.size.toString()
-    
-
+    var searchTerm by remember { mutableStateOf("") }
 
     Box(modifier = Modifier.fillMaxSize()) {
 
         Column {
-
-
+            Title()
             TopAppBar(
-                elevation = 25.dp,
-                modifier = Modifier.padding(10.dp)
+                modifier = Modifier.height(85.dp),
+                backgroundColor = Color.Transparent
             ) {
-                Text(
-                    text = "Crypto App",
-                    modifier = Modifier.padding(5.dp)
-                )
-            }
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(15.dp)
-            ) {
-                Text(text = "Results: $resultsAmount")
-            }
-            LazyColumn(modifier = Modifier.fillMaxSize()) {
-                // using the List of Coin Data as the items
-                items(state.coins) { coin ->
-
-                    CoinListItem(
-                        coin = coin,
-                        onItemClick = {
-                            navController.navigate(Screen.CoinDetailScreen.route + "/${coin.id}")
-                        }
+                Row(
+                    horizontalArrangement = Arrangement.Center,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(9.dp)
+                ) {
+                    // Search Field
+                    TextField(
+                        value = searchTerm,
+                        onValueChange = { searchTerm = it }
                     )
-
                 }
             }
+            ResultsTextLabel(resultsAmount)
+            CoinList(state, searchTerm, navController)
         }
 
         if(state.error.isNotBlank()) {
@@ -80,4 +66,9 @@ fun CoinListScreen(
             CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
         }
     }
+}
+
+
+fun filterList(coin: List<CoinData>, search: String){
+
 }

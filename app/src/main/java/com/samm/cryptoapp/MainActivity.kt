@@ -16,7 +16,6 @@ import androidx.navigation.compose.rememberNavController
 import com.samm.cryptoapp.presentation.Screen
 import com.samm.cryptoapp.presentation.crypto_details.CoinDetailsScreen
 import com.samm.cryptoapp.presentation.crypto_list.CoinListScreen
-import com.samm.cryptoapp.presentation.crypto_list.MainScreen
 import com.samm.cryptoapp.presentation.ui.theme.CryptoAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -26,7 +25,9 @@ import dagger.hilt.android.AndroidEntryPoint
      - Search for a coin within results list
      - When Search Icon button is pressed - filter search list with that string
      - When done with UI - start tests - unit, integration, end-to-end
-     - ADD TO GITHUB
+     - Move UI code into components for the Details Screen
+     - Make a navigation file - maybe
+     - Fix null crashes from tag data
  */
 
 

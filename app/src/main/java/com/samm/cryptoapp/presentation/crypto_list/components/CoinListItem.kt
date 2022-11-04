@@ -12,7 +12,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -39,7 +38,7 @@ fun CoinListItem(
             )
             Text(
                 text = if(coin.is_active) "active" else "inactive",
-                color = if(coin.is_active) Color.Green else Color.Red,
+                color = if(coin.is_active) Color.Cyan else Color.Red,
                 textAlign = TextAlign.End,
                 style = MaterialTheme.typography.body2,
                 modifier = Modifier.align(CenterVertically)
