@@ -10,8 +10,9 @@ data class CoinDetailsData(
     val rank: Int,
     val isActive: Boolean,
     val logo: String?,
+    val links: Links,
     val message: String?,
-    val tags: List<String?>,
+    val tags: List<Tag>,
     val team: List<Team>,
     val whitePaper: Whitepaper
 )

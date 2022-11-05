@@ -12,11 +12,11 @@ import com.google.accompanist.flowlayout.FlowRow
 import com.samm.cryptoapp.domain.model.CoinDetailsData
 
 @Composable
-fun Tags(data: CoinDetailsData) {
+fun Team(data: CoinDetailsData) {
     // Team
     Text(
-        text = "Tags:",
-        modifier = Modifier.padding(bottom = 15.dp),
+        text = "Team:",
+        modifier = Modifier.padding(top = 50.dp, bottom = 15.dp),
         fontSize = 18.sp,
         color = Color.Cyan
     )
@@ -25,10 +25,16 @@ fun Tags(data: CoinDetailsData) {
         crossAxisSpacing = 10.dp,
         modifier = Modifier
             .fillMaxWidth()
-            .padding(bottom = 15.dp)
+            .padding(bottom = 50.dp)
     ) {
-        data.tags.forEach { tag ->
-            Text(text = "${tag.name}  ")
+        if (data.team != null){
+            data.team.forEach { team ->
+                Text(text = "Name: ${team.name}  ")
+                Text(text = "Position: ${team.position}  ")
+            }
+        }
+        else{
+            Text(text = "Not Available")
         }
     }
 }

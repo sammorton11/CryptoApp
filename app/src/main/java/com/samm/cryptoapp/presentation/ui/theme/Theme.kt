@@ -7,6 +7,7 @@ import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Color.Companion.DarkGray
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 private val DarkColorPalette = darkColors(
     primary = ColorPrimary,
@@ -24,6 +25,10 @@ private val LightColorPalette = lightColors(
 
 @Composable
 fun CryptoAppTheme(darkTheme: Boolean = true, content: @Composable() () -> Unit) {
+    val systemUiController = rememberSystemUiController()
+    systemUiController.setSystemBarsColor(
+        color = DarkGray
+    )
     val colors = if (darkTheme) {
         DarkColorPalette
     } else {

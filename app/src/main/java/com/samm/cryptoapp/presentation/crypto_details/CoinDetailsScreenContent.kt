@@ -1,9 +1,13 @@
 package com.samm.cryptoapp.presentation.crypto_details
 
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.CircularProgressIndicator
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -13,7 +17,8 @@ import com.samm.cryptoapp.presentation.crypto_details.components.*
 @Composable
 fun CoinDetailsScreenContent(
     detailsState: CoinDetailsState,
-    priceDetailsState: CoinPriceDetailsState
+    priceDetailsState: CoinPriceDetailsState,
+    context: Context
 ) {
     Box(
         modifier = Modifier
@@ -34,12 +39,29 @@ fun CoinDetailsScreenContent(
             ) {
 
                 detailsState.coins?.let { coinData ->
-                    Logo(data = coinData)
-                    Description(data = coinData, priceState = priceDetailsState)
-                    Spacer(modifier = Modifier.padding(25.dp))
-                    Tags(data = coinData)
+
+                    val website = coinData.links.website
+                    val websiteLink = website
+                        .toString()
+                        .removePrefix("[")
+                        .removeSuffix("]")
+
+                    Logo(coinData)
+                    CoinPrice(priceDetailsState)
+                    Description(coinData)
+                    Team(coinData)
+                    Tags(coinData)
+                    WebsiteButton(websiteLink, context)
                 }
             }
         }
     }
+}
+
+fun openWebsite(website: String, context: Context){
+    val urlIntent = Intent(
+        Intent.ACTION_VIEW,
+        Uri.parse(website)
+    )
+    context.startActivity(urlIntent)
 }

@@ -1,10 +1,12 @@
 package com.samm.cryptoapp.presentation.crypto_list.components
 
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -23,7 +25,14 @@ fun CoinListItem(
     onItemClick: (CoinData) -> Unit
 ) {
 
-    Card(modifier = Modifier.padding(8.dp)) {
+    Card(
+        modifier = Modifier
+            .padding(8.dp)
+            .border(
+                width = 1.dp,
+                color = MaterialTheme.colors.primary,
+            )
+    ) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -43,6 +52,7 @@ fun CoinListItem(
                 style = MaterialTheme.typography.body2,
                 modifier = Modifier.align(CenterVertically)
             )
+
         }
     }
 

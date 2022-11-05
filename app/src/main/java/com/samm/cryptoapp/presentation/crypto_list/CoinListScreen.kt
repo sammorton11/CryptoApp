@@ -10,8 +10,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.samm.cryptoapp.domain.model.CoinData
 import com.samm.cryptoapp.presentation.crypto_list.components.CoinList
+import com.samm.cryptoapp.presentation.crypto_list.components.RefreshButton
 import com.samm.cryptoapp.presentation.crypto_list.components.ResultsTextLabel
 import com.samm.cryptoapp.presentation.crypto_list.components.Title
 import com.samm.cryptoapp.presentation.viewmodel.CoinListViewModel
@@ -29,23 +29,33 @@ fun CoinListScreen(
     Box(modifier = Modifier.fillMaxSize()) {
 
         Column {
-            Title()
             TopAppBar(
-                modifier = Modifier.height(85.dp),
+                modifier = Modifier.fillMaxWidth(),
                 backgroundColor = Color.Transparent
             ) {
-                Row(
-                    horizontalArrangement = Arrangement.Center,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(9.dp)
-                ) {
-                    // Search Field
-                    TextField(
-                        value = searchTerm,
-                        onValueChange = { searchTerm = it }
-                    )
-                }
+               Row(
+                   modifier = Modifier.fillMaxWidth(),
+                   horizontalArrangement = Arrangement.Center,
+                   verticalAlignment = Alignment.CenterVertically
+               ) {
+                   Title(navController)
+                   RefreshButton(navController)
+               }
+
+            }
+
+            Row(
+                horizontalArrangement = Arrangement.Center,
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(9.dp)
+            ) {
+                // Search Field
+                TextField(
+                    value = searchTerm,
+                    onValueChange = { searchTerm = it }
+                )
             }
             ResultsTextLabel(resultsAmount)
             CoinList(state, searchTerm, navController)
@@ -65,10 +75,7 @@ fun CoinListScreen(
         if(state.isLoading) {
             CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
         }
+
     }
 }
 
-
-fun filterList(coin: List<CoinData>, search: String){
-
-}
