@@ -1,5 +1,7 @@
 package com.samm.cryptoapp.presentation.crypto_list.components
 
+import android.content.Context
+import android.widget.Toast
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -15,7 +17,7 @@ import com.samm.cryptoapp.presentation.Screen
 import com.samm.cryptoapp.presentation.crypto_list.CoinsListState
 
 @Composable
-fun CoinList(state: CoinsListState, searchTerm: String, navController: NavController) {
+fun CoinList(state: CoinsListState, searchTerm: String, navController: NavController, context: Context) {
 
     // Data filtered by a search term provided in the text field
     val coinData = if (searchTerm.isNotBlank()) {
@@ -36,8 +38,8 @@ fun CoinList(state: CoinsListState, searchTerm: String, navController: NavContro
            // Using the take function to only use 10000 coins -- there are 45k types of coin
            // and it takes up too much memory.
            // Todo: Add comps to be able to trigger how many coins are displayed
-           items(coinData.take(LIST_AMOUNT).sortedBy { it.rank }) { coin ->
-               if (coin.rank > 0){
+           items(coinData.take(LIST_AMOUNT)) { coin ->
+               if (coin.rank > -1){
                    CoinListItem(
                        coin = coin,
                        onItemClick = {
@@ -46,6 +48,12 @@ fun CoinList(state: CoinsListState, searchTerm: String, navController: NavContro
                                navController.navigate(
                                    Screen.CoinDetailScreen.route + "/${coin.id}"
                                )
+                           } else {
+                               Toast.makeText(
+                                   context,
+                                   "Denied - Coin is inactive",
+                                   Toast.LENGTH_SHORT
+                               ).show()
                            }
                        }
                    )

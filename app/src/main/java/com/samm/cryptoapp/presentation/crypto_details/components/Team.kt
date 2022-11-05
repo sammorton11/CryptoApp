@@ -16,7 +16,7 @@ fun Team(data: CoinDetailsData) {
     // Team
     Text(
         text = "Team:",
-        modifier = Modifier.padding(top = 50.dp, bottom = 15.dp),
+        modifier = Modifier.padding(top = 30.dp, bottom = 15.dp),
         fontSize = 18.sp,
         color = Color.Cyan
     )
@@ -29,8 +29,7 @@ fun Team(data: CoinDetailsData) {
     ) {
         if (data.team != null){
             data.team.forEach { team ->
-                Text(text = "Name: ${team.name}  ")
-                Text(text = "Position: ${team.position}  ")
+                Text(text = "${team?.name}  -  ${team?.position}  ")
             }
         }
         else{

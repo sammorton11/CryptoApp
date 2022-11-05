@@ -19,7 +19,7 @@ fun Navigation(context: Context) {
         composable(
             route = Screen.CoinListScreen.route
         ) {
-            CoinListScreen(navController)
+            CoinListScreen(navController, context)
         }
         composable(
             route = Screen.CoinDetailScreen.route + "/{coinId}"

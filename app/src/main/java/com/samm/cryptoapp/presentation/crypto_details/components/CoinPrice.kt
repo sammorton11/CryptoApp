@@ -25,7 +25,7 @@ fun CoinPrice(state: CoinPriceDetailsState) {
 
     Column(Modifier
         .fillMaxWidth()
-        .padding(top = 25.dp, bottom = 50.dp)
+        .padding(top = 25.dp, bottom = 30.dp)
         .border(
             width = 1.dp,
             color = MaterialTheme.colors.primary,

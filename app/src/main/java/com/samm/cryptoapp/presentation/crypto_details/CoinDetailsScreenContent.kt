@@ -40,18 +40,21 @@ fun CoinDetailsScreenContent(
 
                 detailsState.coins?.let { coinData ->
 
-                    val website = coinData.links.website
-                    val websiteLink = website
-                        .toString()
-                        .removePrefix("[")
-                        .removeSuffix("]")
-
+                    val website = coinData.links?.website
+                    val site = coinData.linksExtended[0]?.url
                     Logo(coinData)
                     CoinPrice(priceDetailsState)
                     Description(coinData)
+                    if (site != null) {
+                        WebsiteButton(site, context)
+                    }
                     Team(coinData)
                     Tags(coinData)
-                    WebsiteButton(websiteLink, context)
+                    ExploreLinks(coinData, context)
+                    Spacer(modifier = Modifier
+                        .padding(top = 25.dp, bottom = 25.dp)
+                    )
+                    SocialMediaLinks(coinData, context)
                 }
             }
         }

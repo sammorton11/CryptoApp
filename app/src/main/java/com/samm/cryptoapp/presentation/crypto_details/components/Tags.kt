@@ -25,10 +25,10 @@ fun Tags(data: CoinDetailsData) {
         crossAxisSpacing = 10.dp,
         modifier = Modifier
             .fillMaxWidth()
-            .padding(bottom = 15.dp)
+            .padding(bottom = 50.dp)
     ) {
         data.tags.forEach { tag ->
-            Text(text = "${tag.name}  ")
+            Text(text = "${tag?.name}  ")
         }
     }
 }

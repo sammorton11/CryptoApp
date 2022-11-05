@@ -1,5 +1,6 @@
 package com.samm.cryptoapp.presentation.crypto_list
 
+import android.content.Context
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.*
@@ -20,7 +21,8 @@ import com.samm.cryptoapp.presentation.viewmodel.CoinListViewModel
 @Composable
 fun CoinListScreen(
     navController: NavController,
-    viewModel: CoinListViewModel = hiltViewModel()
+    context: Context,
+    viewModel: CoinListViewModel = hiltViewModel(),
 ) {
     val state = viewModel.state.value // state from the viewModel
     val resultsAmount = state.coins.size.toString()
@@ -58,7 +60,7 @@ fun CoinListScreen(
                 )
             }
             ResultsTextLabel(resultsAmount)
-            CoinList(state, searchTerm, navController)
+            CoinList(state, searchTerm, navController, context)
         }
 
         if(state.error.isNotBlank()) {
