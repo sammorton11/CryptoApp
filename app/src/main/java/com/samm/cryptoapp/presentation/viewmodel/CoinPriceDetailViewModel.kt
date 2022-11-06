@@ -8,8 +8,6 @@ import androidx.lifecycle.viewModelScope
 import com.samm.cryptoapp.common.Constants.COIN_ID
 import com.samm.cryptoapp.common.Resource
 import com.samm.cryptoapp.domain.use_case.get_coin_data.GetSingleCoinPriceUseCase
-import com.samm.cryptoapp.domain.use_case.get_coin_data.GetSingleCoinUseCase
-import com.samm.cryptoapp.presentation.crypto_details.CoinDetailsState
 import com.samm.cryptoapp.presentation.crypto_details.CoinPriceDetailsState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
@@ -22,7 +20,6 @@ class CoinPriceDetailViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle
 ): ViewModel() {
 
-    // 49:39 - video resource - explanation
     private val _state = mutableStateOf(CoinPriceDetailsState()) // not exposed because mutable
     val state: State<CoinPriceDetailsState> = _state // expose this to composable because immutable
 
@@ -32,13 +29,11 @@ class CoinPriceDetailViewModel @Inject constructor(
         }
     }
 
-
-
     // method to call the use case - put the data in the state object - then display state in the ui
     private fun getData(id: String){
 
         // returns the flow that emits the Resource values
-        // can call this class as a method because of overriding invoke() -- cool!
+        // can call this class as a method because of overriding invoke() -- cool
         // then use onEach to use the Resource result in the when expression
         // assign values to the state value
         getCoinPriceDetailsUseCase(id).onEach { resourceResult ->

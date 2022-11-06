@@ -1,6 +1,5 @@
 package com.samm.cryptoapp.presentation.crypto_details
 
-import com.samm.cryptoapp.domain.model.CoinDetailsData
 import com.samm.cryptoapp.domain.model.CoinPriceDetailsData
 
 data class CoinPriceDetailsState(

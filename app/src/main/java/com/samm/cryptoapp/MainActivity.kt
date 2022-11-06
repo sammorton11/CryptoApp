@@ -17,7 +17,7 @@ import dagger.hilt.android.AndroidEntryPoint
      - Test Module
      - Crypto List Screen test
      - Crypto Details Screen test
-     - Learn Unit and Integration tests
+     - Unit and Integration tests first
  */
 
 

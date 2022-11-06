@@ -12,7 +12,7 @@ import androidx.compose.ui.unit.dp
 import com.samm.cryptoapp.common.Constants.LIST_AMOUNT
 
 @Composable
-fun ResultsTextLabel(resultsAmount: String) {
+fun ResultsTextLabel() {
     Row(
         horizontalArrangement = Arrangement.Start,
         verticalAlignment = Alignment.CenterVertically,

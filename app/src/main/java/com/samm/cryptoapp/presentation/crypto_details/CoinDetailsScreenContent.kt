@@ -7,7 +7,6 @@ import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.CircularProgressIndicator
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -40,7 +39,6 @@ fun CoinDetailsScreenContent(
 
                 detailsState.coins?.let { coinData ->
 
-                    val website = coinData.links?.website
                     val site = coinData.linksExtended[0]?.url
                     Logo(coinData)
                     CoinPrice(priceDetailsState)
