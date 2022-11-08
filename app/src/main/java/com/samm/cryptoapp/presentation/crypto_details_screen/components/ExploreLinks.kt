@@ -1,7 +1,10 @@
 package com.samm.cryptoapp.presentation.crypto_details_screen.components
 
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -28,7 +31,7 @@ fun ExploreLinks(data: CoinDetailsData, navController: NavController) {
         cardLength = 0.dp
 
         Column(
-            modifier = Modifier.padding(bottom = cardLength),
+            modifier = Modifier.padding(cardLength),
             verticalArrangement = Arrangement.Center
         ) {
             Text(
@@ -38,22 +41,25 @@ fun ExploreLinks(data: CoinDetailsData, navController: NavController) {
                 color = MaterialTheme.colors.onBackground
             )
             if (expanded) {
-                // Link Buttons to the Coins website
-                website?.let { WebsiteButton(websiteLink = it, navController = navController) }
-                // Extend the card length -- doesn't extend far enough
-                cardLength = 15.dp
-                // Link Buttons to "explore" websites
-                dataLinksExtended?.forEach { link ->
-                    link?.let {
-                        Row(
-                            modifier = Modifier.fillMaxWidth(),
-                            horizontalArrangement = Arrangement.Center,
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
+                Column(
+                    modifier = Modifier.padding(15.dp),
+                    Arrangement.Center,
+                    Alignment.CenterHorizontally
+                ) {
+                    // Link Buttons to the Coins website
+                    website?.let {
+                        WebsiteButton(websiteLink = it, navController = navController)
+                    }
+                    // Extend the card length -- doesn't extend far enough
+                    cardLength = 15.dp
+                    // Link Buttons to "explore" websites
+                    dataLinksExtended?.forEach { link ->
+                        link?.let {
                             WebsiteButton(websiteLink = link, navController = navController)
                         }
                     }
                 }
+
             }
         }
     }

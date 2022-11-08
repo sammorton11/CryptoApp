@@ -25,7 +25,6 @@ fun CoinListItem(
     coin: CoinData,
     onItemClick: (CoinData) -> Unit
 ) {
-
     Card(
         modifier = Modifier
             .padding(8.dp)

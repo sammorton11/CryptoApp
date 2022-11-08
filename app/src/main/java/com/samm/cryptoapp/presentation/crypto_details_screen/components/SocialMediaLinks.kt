@@ -1,7 +1,10 @@
 package com.samm.cryptoapp.presentation.crypto_details_screen.components
 
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -44,20 +47,19 @@ fun SocialMediaLinks(data: CoinDetailsData, navController: NavController) {
                 color = MaterialTheme.colors.onBackground
             )
             if (expanded){
-                cardLength = 15.dp // Extend the card length -- doesn't extend far enough
-                list.forEach { link ->
-                    if (link?.first()?.isNotEmpty() == true){
-                        Row(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(bottom = 15.dp),
-                            horizontalArrangement = Arrangement.Center,
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
+                Column(
+                    modifier = Modifier.padding(15.dp),
+                    Arrangement.Center,
+                    Alignment.CenterHorizontally
+                ) {
+                    cardLength = 15.dp // Extend the card length -- doesn't extend far enough
+                    list.forEach { link ->
+                        if (link?.first()?.isNotEmpty() == true){
                             WebsiteButton(websiteLink = link?.first()!!, navController = navController)
                         }
                     }
                 }
+
             }
         }
     }
