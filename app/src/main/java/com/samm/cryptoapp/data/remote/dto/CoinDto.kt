@@ -19,10 +19,10 @@ data class CoinDto(
 // Map data from DTO to the CoinData data class
 fun CoinDto.toCoin(): CoinData {
     return CoinData(
-        id = this.id,
-        is_active = this.is_active,
-        name = this.name,
-        rank = this.rank,
-        symbol = this.symbol
+        id = id,
+        is_active = is_active,
+        name = name,
+        rank = rank,
+        symbol = symbol
     )
 }

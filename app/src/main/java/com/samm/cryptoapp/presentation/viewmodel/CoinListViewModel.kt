@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.samm.cryptoapp.common.Resource
 import com.samm.cryptoapp.domain.use_case.get_all_coin_data.GetAllCoinsUseCase
-import com.samm.cryptoapp.presentation.crypto_list.CoinsListState
+import com.samm.cryptoapp.presentation.crypto_list_screen.CoinsListState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach

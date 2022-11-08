@@ -6,6 +6,7 @@ object Constants {
 
     const val BASE_URL = "https://api.coinpaprika.com/"
     const val COIN_ID = "coinId"
-    const val LIST_AMOUNT = 10000
+    var LIST_AMOUNT = 100
     val HEADING_SIZE = 18.sp
+    val cornerShape = 45
 }

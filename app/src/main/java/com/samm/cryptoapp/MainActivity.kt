@@ -7,17 +7,18 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
-import com.samm.cryptoapp.presentation.Navigation
+import com.samm.cryptoapp.presentation.navigation.Navigation
 import com.samm.cryptoapp.presentation.ui.theme.CryptoAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 /*
     Todo:
+     - LightMode not triggering
      - Test Runner
      - Test Module
      - Crypto List Screen test
      - Crypto Details Screen test
-     - Learn Unit and Integration tests
+     - Unit and Integration tests first
  */
 
 

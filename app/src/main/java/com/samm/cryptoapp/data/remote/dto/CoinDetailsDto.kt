@@ -1,7 +1,6 @@
 package com.samm.cryptoapp.data.remote.dto
 
 import com.google.gson.annotations.SerializedName
-import com.samm.cryptoapp.domain.model.CoinData
 import com.samm.cryptoapp.domain.model.CoinDetailsData
 
 data class CoinDetailsDto(
@@ -38,7 +37,7 @@ data class CoinDetailsDto(
     val startedAt: String?,
     val symbol: String?,
     val tags: List<Tag?>,
-    val team: List<Team?>,
+    val team: List<Team>?,
     val type: String?
 )
 

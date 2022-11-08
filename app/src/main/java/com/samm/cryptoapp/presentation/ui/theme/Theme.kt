@@ -1,6 +1,5 @@
 package com.samm.cryptoapp.presentation.ui.theme
 
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
@@ -11,6 +10,7 @@ import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 private val DarkColorPalette = darkColors(
     primary = ColorPrimary,
+    secondary = MediumGray,
     background = DarkGray,
     onBackground = TextWhite,
     onPrimary = DarkGray
@@ -30,8 +30,14 @@ fun CryptoAppTheme(darkTheme: Boolean = true, content: @Composable() () -> Unit)
         color = DarkGray
     )
     val colors = if (darkTheme) {
+        systemUiController.setSystemBarsColor(
+            color = DarkGray
+        )
         DarkColorPalette
     } else {
+        systemUiController.setSystemBarsColor(
+            color = ColorPrimary
+        )
         LightColorPalette
     }
 
