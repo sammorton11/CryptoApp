@@ -8,7 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.samm.cryptoapp.common.Constants.COIN_ID
 import com.samm.cryptoapp.common.Resource
 import com.samm.cryptoapp.domain.use_case.get_coin_data.GetSingleCoinUseCase
-import com.samm.cryptoapp.presentation.crypto_details.CoinDetailsState
+import com.samm.cryptoapp.presentation.crypto_details_screen.CoinDetailsState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -29,8 +29,6 @@ class CoinDetailViewModel @Inject constructor(
             getData(id)
         }
     }
-
-
 
     // method to call the use case - put the data in the state object - then display state in the ui
     private fun getData(id: String){

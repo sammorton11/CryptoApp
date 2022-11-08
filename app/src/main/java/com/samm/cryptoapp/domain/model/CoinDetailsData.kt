@@ -1,6 +1,9 @@
 package com.samm.cryptoapp.domain.model
 
-import com.samm.cryptoapp.data.remote.dto.*
+import com.samm.cryptoapp.data.remote.dto.Links
+import com.samm.cryptoapp.data.remote.dto.LinksExtended
+import com.samm.cryptoapp.data.remote.dto.Tag
+import com.samm.cryptoapp.data.remote.dto.Team
 
 data class CoinDetailsData(
     val coinId: String,
@@ -14,5 +17,5 @@ data class CoinDetailsData(
     val linksExtended: List<LinksExtended?>,
     val message: String?,
     val tags: List<Tag?>,
-    val team: List<Team?>,
+    val team: List<Team>?,
 )
