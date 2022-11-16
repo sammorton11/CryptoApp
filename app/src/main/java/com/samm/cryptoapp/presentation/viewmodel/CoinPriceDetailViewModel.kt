@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.samm.cryptoapp.common.Constants.COIN_ID
 import com.samm.cryptoapp.common.Resource
-import com.samm.cryptoapp.domain.use_case.get_coin_data.GetSingleCoinPriceUseCase
+import com.samm.cryptoapp.domain.use_case.get_coin_details_data.GetSingleCoinPriceUseCase
 import com.samm.cryptoapp.presentation.crypto_details_screen.CoinPriceDetailsState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn

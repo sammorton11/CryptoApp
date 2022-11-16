@@ -1,8 +1,8 @@
 package com.samm.cryptoapp.data.repository
 
 import com.samm.cryptoapp.data.remote.CryptoApi
-import com.samm.cryptoapp.data.remote.dto.CoinDetailsDto
 import com.samm.cryptoapp.data.remote.dto.CoinDto
+import com.samm.cryptoapp.data.remote.dto.coin_details.CoinDetailsDto
 import com.samm.cryptoapp.data.remote.dto.price_details.CoinPriceDetailsDtoItem
 import com.samm.cryptoapp.domain.repository.CryptoRepository
 import javax.inject.Inject

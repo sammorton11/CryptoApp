@@ -54,12 +54,12 @@ fun SocialMediaLinks(data: CoinDetailsData, navController: NavController) {
                 ) {
                     cardLength = 15.dp // Extend the card length -- doesn't extend far enough
                     list.forEach { link ->
-                        if (link?.first()?.isNotEmpty() == true){
-                            WebsiteButton(websiteLink = link?.first()!!, navController = navController)
+                        val url = link.toString()
+                        if (url.isNotEmpty()){
+                            WebsiteButton(websiteLink = url, navController = navController)
                         }
                     }
                 }
-
             }
         }
     }
