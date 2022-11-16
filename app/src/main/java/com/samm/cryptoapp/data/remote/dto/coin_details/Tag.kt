@@ -1,4 +1,4 @@
-package com.samm.cryptoapp.data.remote.dto
+package com.samm.cryptoapp.data.remote.dto.coin_details
 
 data class Tag(
     val coin_counter: Int?,

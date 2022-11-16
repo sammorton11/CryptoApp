@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">CryptoApp</string>
+    <string name="fake_coin_name_01">FakeCoin01</string>
+    <string name="fake_coin_name_02">FakeCoin02</string>
+    <string name="fake_coin_name_03">FakeCoin03</string>
+    <string name="fake_coin_details_name">FakeCoin01_Details</string>
+    <string name="test_symbol">test_symbol_02</string>
+    <string name="fake_coin_id_01">fake_coin_id_01</string>
+    <string name="fake_coin_id_02">fake_coin_id_02</string>
+    <string name="fake_coin_id_03">fake_coin_id_03</string>
+    <string name="fake_coin_type">coin</string>
+    <string name="fake_developmentStatus01">fake_developmentStatus01</string>
+    <string name="fake_firstDataAt_date">fake_firstDataAt_date</string>
+    <string name="fake_hashAlgorithm">fake_hashAlgorithm</string>
+    <string name="fake_message">fake_message</string>
+    <string name="fake_orgStructure">fake_orgStructure</string>
+    <string name="fake_proofType">fake_proofType</string>
+    <string name="fake_startedAt_date">fake_startedAt_date</string>
+    <string name="fake_lastDataAt_date">fake_lastDataAt_date</string>
+    <string name="fake_lastUpdatedAt_date">fake_lastUpdatedAt_date</string>
 </resources>

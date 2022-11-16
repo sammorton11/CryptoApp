@@ -19,7 +19,6 @@ import com.samm.cryptoapp.presentation.crypto_list_screen.components.CoinList
 import com.samm.cryptoapp.presentation.crypto_list_screen.components.CoinListTopBar
 import com.samm.cryptoapp.presentation.viewmodel.CoinListViewModel
 
-
 @Composable
 fun CoinListScreen(
     navController: NavController,
@@ -58,7 +57,6 @@ fun CoinListScreen(
                     }
                 )
             }
-            
             CoinList(
                 state = state, 
                 searchTerm = searchTerm, 
@@ -81,7 +79,6 @@ fun CoinListScreen(
         if(state.isLoading) {
             CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
         }
-
     }
 }
 

@@ -1,10 +1,9 @@
 package com.samm.cryptoapp.fakes
 
-import com.samm.cryptoapp.data.remote.dto.Links
-import com.samm.cryptoapp.data.remote.dto.Tag
-import com.samm.cryptoapp.data.remote.dto.Team
+import com.samm.cryptoapp.data.remote.dto.coin_details.Links
+import com.samm.cryptoapp.data.remote.dto.coin_details.Tag
+import com.samm.cryptoapp.data.remote.dto.coin_details.Team
 import com.samm.cryptoapp.data.remote.dto.price_details.BTC
-import com.samm.cryptoapp.data.remote.dto.price_details.Quotes
 import com.samm.cryptoapp.data.remote.dto.price_details.USD
 
 object FakeTeam {

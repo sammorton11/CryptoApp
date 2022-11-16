@@ -4,9 +4,9 @@ import com.samm.cryptoapp.common.Constants.BASE_URL
 import com.samm.cryptoapp.data.remote.CryptoApi
 import com.samm.cryptoapp.data.repository.CryptoRepositoryImpl
 import com.samm.cryptoapp.domain.repository.CryptoRepository
-import com.samm.cryptoapp.domain.use_case.get_all_coin_data.GetAllCoinsUseCase
-import com.samm.cryptoapp.domain.use_case.get_coin_data.GetSingleCoinPriceUseCase
-import com.samm.cryptoapp.domain.use_case.get_coin_data.GetSingleCoinUseCase
+import com.samm.cryptoapp.domain.use_case.get_coin_details_data.GetSingleCoinPriceUseCase
+import com.samm.cryptoapp.domain.use_case.get_coin_details_data.GetSingleCoinUseCase
+import com.samm.cryptoapp.domain.use_case.get_list_of_coins.GetAllCoinsUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

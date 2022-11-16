@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.samm.cryptoapp.common.Constants.COIN_ID
 import com.samm.cryptoapp.common.Resource
-import com.samm.cryptoapp.domain.use_case.get_coin_data.GetSingleCoinUseCase
+import com.samm.cryptoapp.domain.use_case.get_coin_details_data.GetSingleCoinUseCase
 import com.samm.cryptoapp.presentation.crypto_details_screen.CoinDetailsState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
@@ -20,7 +20,6 @@ class CoinDetailViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle
 ): ViewModel() {
 
-    // 49:39 - video resource - explanation
     private val _state = mutableStateOf(CoinDetailsState()) // not exposed because mutable
     val state: State<CoinDetailsState> = _state // expose this to composable because immutable
 

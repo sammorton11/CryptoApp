@@ -5,7 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.samm.cryptoapp.common.Resource
-import com.samm.cryptoapp.domain.use_case.get_all_coin_data.GetAllCoinsUseCase
+import com.samm.cryptoapp.domain.use_case.get_list_of_coins.GetAllCoinsUseCase
 import com.samm.cryptoapp.presentation.crypto_list_screen.CoinsListState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
@@ -16,7 +16,7 @@ import javax.inject.Inject
 class CoinListViewModel @Inject constructor(
     private val getAllCoinsUseCase: GetAllCoinsUseCase
 ): ViewModel() {
-    // 49:39 - video resource - explanation
+
     private val _state = mutableStateOf(CoinsListState()) // not exposed because mutable
     val state: State<CoinsListState> = _state // expose this to composable because immutable
 
@@ -46,8 +46,6 @@ class CoinListViewModel @Inject constructor(
                     )
                 }
             }
-
         }.launchIn(viewModelScope) // must launch in coroutine scope because using a flow
-
     }
 }

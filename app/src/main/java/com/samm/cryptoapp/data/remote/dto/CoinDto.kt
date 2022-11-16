@@ -5,7 +5,7 @@ import com.samm.cryptoapp.domain.model.CoinData
 
 // Use this to map data from api - then use the CoinData data class in model package for the UI
 data class CoinDto(
-    val id: String,
+    val id: String?,
     @SerializedName("is_active")
     val is_active: Boolean,
     @SerializedName("is_new")
