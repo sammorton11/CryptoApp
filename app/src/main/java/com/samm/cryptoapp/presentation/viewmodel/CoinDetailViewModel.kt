@@ -53,6 +53,5 @@ class CoinDetailViewModel @Inject constructor(
             }
 
         }.launchIn(viewModelScope) // must launch in coroutine scope because using a flow
-
     }
 }

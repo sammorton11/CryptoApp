@@ -9,6 +9,8 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.style.TextAlign
@@ -29,7 +31,6 @@ fun CoinListScreen(
     var searchTerm by remember { mutableStateOf("") }
 
     Box(modifier = Modifier.fillMaxSize()) {
-
         Column {
             CoinListTopBar(navController)
             Row(
@@ -42,12 +43,16 @@ fun CoinListScreen(
                 // Search Field
                 OutlinedTextField(
                     value = searchTerm,
-                    onValueChange = {searchTerm = it},
-                    modifier = Modifier.padding(8.dp).fillMaxWidth(),
+                    onValueChange = { searchTerm = it },
+                    modifier = Modifier
+                        .padding(8.dp)
+                        .fillMaxWidth()
+                        .semantics { contentDescription = "Search Field" },
                     enabled = true,
                     label = {
                         Text(
                             "Search Coins",
+                            modifier = Modifier.semantics { contentDescription = "Search Field Label" },
                             color = MaterialTheme.colors.onBackground,
                             textAlign = TextAlign.Center,
                             style = TextStyle(
@@ -74,10 +79,13 @@ fun CoinListScreen(
                     .fillMaxWidth()
                     .padding(horizontal = 20.dp)
                     .align(Alignment.Center)
+                    .semantics { contentDescription = "Error Text" },
             )
         }
         if(state.isLoading) {
-            CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
+            CircularProgressIndicator(modifier = Modifier
+                .align(Alignment.Center)
+                .semantics { contentDescription = "Progress Bar" })
         }
     }
 }
