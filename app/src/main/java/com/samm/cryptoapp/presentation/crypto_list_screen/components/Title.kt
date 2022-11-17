@@ -7,6 +7,8 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.samm.cryptoapp.common.Constants.LIST_AMOUNT
@@ -15,11 +17,13 @@ import com.samm.cryptoapp.common.Constants.LIST_AMOUNT
 fun Title() {
     Row(
         modifier = Modifier
-            .padding(10.dp),
+            .padding(10.dp)
+            .semantics { contentDescription = "Top Bar" },
         horizontalArrangement = Arrangement.SpaceEvenly
     ) {
         Text(
             text = "Top $LIST_AMOUNT Crypto Coins",
+            modifier = Modifier.semantics { contentDescription = "Title" },
             color = MaterialTheme.colors.onBackground,
             fontSize = 25.sp
         )

@@ -1,4 +1,4 @@
-package com.samm.cryptoapp.unit_tests
+package com.samm.cryptoapp.unit_tests.use_case
 
 import com.google.common.truth.Truth.assertThat
 import com.samm.cryptoapp.common.Resource

@@ -29,9 +29,7 @@ class CoinPriceDetailViewModel @Inject constructor(
         }
     }
 
-    // method to call the use case - put the data in the state object - then display state in the ui
     private fun getData(id: String){
-
         // returns the flow that emits the Resource values
         // can call this class as a method because of overriding invoke() -- cool
         // then use onEach to use the Resource result in the when expression
@@ -51,7 +49,6 @@ class CoinPriceDetailViewModel @Inject constructor(
                     _state.value = CoinPriceDetailsState(isLoading = true)
                 }
             }
-
         }.launchIn(viewModelScope) // must launch in coroutine scope because using a flow
 
     }

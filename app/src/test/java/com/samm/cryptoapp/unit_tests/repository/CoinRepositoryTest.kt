@@ -1,4 +1,4 @@
-package com.samm.cryptoapp.unit_tests
+package com.samm.cryptoapp.unit_tests.repository
 
 import com.google.common.truth.Truth.assertThat
 import com.samm.cryptoapp.common.Resource
@@ -24,7 +24,6 @@ class CoinRepositoryTest {
     private var fakeRepository: FakeCryptoRepository = FakeCryptoRepository()
     private var getCoins: FakeGetAllCoinsUseCase = FakeGetAllCoinsUseCase()
     private lateinit var fakeUseCaseFlow: Flow<Resource<List<CoinData>>>
-
     private val coinIdList = listOf(fakeCoinId01, fakeCoinId02, fakeCoinId03)
 
     @Before
@@ -35,23 +34,22 @@ class CoinRepositoryTest {
     @Test
     fun test_that_repository_is_not_empty(): Unit = runBlocking {
         // Test data is passed to the repository
-         assertThat(fakeRepository).isNotNull()
+        assertThat(fakeRepository).isNotNull()
+
     }
 
     @Test
     fun test_if_repository_data_from_DTO_exists(): Unit = runBlocking {
-
         val coinListDtoData = fakeRepository.getCoinData()
+
         coinIdList.forEach {
-            val coinDetailsDtoData = fakeRepository.getCoinDetails(it)
-            val coinPriceDtoData = fakeRepository.getPriceCoinDetails(it)
             assertThat(coinListDtoData).isNotNull()
             assertThat(coinListDtoData).isNotEmpty()
-            assertThat(coinDetailsDtoData).isNotNull()
-            assertThat(coinPriceDtoData).isNotNull()
+            assertThat(fakeRepository.getCoinDetails(it)).isNotNull()
+            assertThat(fakeRepository.getPriceCoinDetails(it)).isNotNull()
         }
 
-        fakeRepository.getCoinData().forEach {
+        coinListDtoData.forEach {
             assertThat(it).isNotNull()
             assertThat(it.id).isNotNull()
             assertThat(it.name).isNotNull()

@@ -20,7 +20,7 @@ object FakeTeam {
         id = "fake_tag_01",
         name = "Fake Tag 01"
     )
-    
+
     val fakeLink = Links(
         explorer = listOf(""),
         facebook = listOf(""),
@@ -30,7 +30,7 @@ object FakeTeam {
         website = listOf(""),
         youtube = listOf("")
     )
-    
+
     val fakeUSD = USD(
         ath_date = "",
         ath_price = 0.5,
