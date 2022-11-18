@@ -12,10 +12,12 @@ The first page displays the list of the top coins in the market. When the user c
 Tests are still in progress as I am still new to testing.
 
 Main Screen:
+
 <img width="371" alt="Screen Shot 2022-11-18 at 12 08 25 PM" src="https://user-images.githubusercontent.com/86651172/202773758-0e684325-1fa3-4f66-b32e-5bcfc4fd3dc6.png">
 
 
 
 
 Detail Screen:
-<img width="368" alt="Screen Shot 2022-11-18 at 12 10 18 PM" src="https://user-images.githubusercontent.com/86651172/202773894-cfd76bbb-a809-42e4-b07f-c8356723ccdf.png">
+
+<img width="368" alt="Screen Shot 2022-11-18 at 12 12 16 PM" src="https://user-images.githubusercontent.com/86651172/202774268-f28c2ca1-f08e-4052-a255-d259c2ccbb8c.png">
