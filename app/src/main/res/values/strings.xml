@@ -18,4 +18,6 @@
     <string name="fake_startedAt_date">fake_startedAt_date</string>
     <string name="fake_lastDataAt_date">fake_lastDataAt_date</string>
     <string name="fake_lastUpdatedAt_date">fake_lastUpdatedAt_date</string>
+    <string name="coin_details_screen">Coin Details Screen</string>
+    <string name="coin_card_test_tag">Coin Card Tag</string>
 </resources>

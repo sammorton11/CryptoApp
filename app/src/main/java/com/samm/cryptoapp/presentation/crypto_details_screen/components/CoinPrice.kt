@@ -15,7 +15,7 @@ import com.samm.cryptoapp.presentation.crypto_details_screen.util.Converters.rou
 
 @Composable
 fun CoinPrice(state: CoinPriceDetailsState) {
-    var expanded by remember { mutableStateOf(false) }
+    var expanded by remember { mutableStateOf(true) }
     Card(
         modifier = Modifier
             .padding(bottom = 25.dp)

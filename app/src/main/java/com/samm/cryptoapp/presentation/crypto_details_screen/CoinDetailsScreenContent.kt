@@ -10,8 +10,11 @@ import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.testTag
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.samm.cryptoapp.R
 import com.samm.cryptoapp.presentation.crypto_details_screen.components.*
 
 @Composable
@@ -24,6 +27,9 @@ fun CoinDetailsScreenContent(
         modifier = Modifier
             .fillMaxSize()
             .padding(5.dp)
+            .semantics {
+                testTag = buildString { append(R.string.coin_details_screen) }
+            }
     ) {
 
         if(detailsState.error.isNotBlank() && priceDetailsState.error.isNotBlank()) {

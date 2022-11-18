@@ -7,7 +7,9 @@ import com.samm.cryptoapp.domain.repository.CryptoRepository
 import com.samm.cryptoapp.domain.use_case.get_coin_details_data.GetSingleCoinPriceUseCase
 import com.samm.cryptoapp.domain.use_case.get_coin_details_data.GetSingleCoinUseCase
 import com.samm.cryptoapp.domain.use_case.get_list_of_coins.GetAllCoinsUseCase
-import com.samm.cryptoapp.fakes.FakeDataSource
+import com.samm.cryptoapp.fakes_test_shared.FakeDataSource.FakeDto.fakeCoinDetails
+import com.samm.cryptoapp.fakes_test_shared.FakeDataSource.FakeDto.fakeCoinPriceDetails
+import com.samm.cryptoapp.fakes_test_shared.FakeDataSource.FakeDto.fakeCoins
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.components.SingletonComponent
@@ -21,32 +23,21 @@ import javax.inject.Singleton
 @Module
 object TestAppModule {
 
-    // Todo: Shouldn't have to provide this but fails without it
-//    @Singleton
-//    @Provides
-//    fun provideApi(): CryptoApi {
-//        return Retrofit.Builder()
-//            .baseUrl(Constants.BASE_URL)
-//            .addConverterFactory(GsonConverterFactory.create())
-//            .build()
-//            .create(CryptoApi::class.java)
-//    }
-
     @Provides
     @Singleton
     fun provideFakeRepository() = object: CryptoRepository {
 
         // use toCoin() in the fake view models
         override suspend fun getCoinData(): List<CoinDto> {
-            return FakeDataSource.fakeCoins
+            return fakeCoins
         }
 
         override suspend fun getCoinDetails(id: String): CoinDetailsDto {
-            return FakeDataSource.fakeCoinDetails
+            return fakeCoinDetails
         }
 
         override suspend fun getPriceCoinDetails(id: String): CoinPriceDetailsDtoItem {
-            return FakeDataSource.fakeCoinPriceDetails
+            return fakeCoinPriceDetails
         }
     }
 
