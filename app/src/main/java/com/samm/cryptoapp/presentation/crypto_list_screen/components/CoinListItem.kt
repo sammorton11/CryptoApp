@@ -14,6 +14,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.testTag
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -32,7 +35,14 @@ fun CoinListItem(
                 width = 1.dp,
                 color = Color.Transparent,
                 shape = RoundedCornerShape(cornerShape)
-            ),
+            )
+            .clickable {
+                onItemClick(coin)
+            }
+            .semantics {
+                contentDescription = "Coin Card"
+                testTag = "Coin Card Tag"
+            },
         shape = RoundedCornerShape(cornerShape),
         backgroundColor = MaterialTheme.colors.secondary,
         elevation = 25.dp
@@ -40,12 +50,19 @@ fun CoinListItem(
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .clickable { onItemClick(coin) }
-                .padding(20.dp),
+                .padding(20.dp)
+                .semantics {
+                    testTag = "Card Row Button"
+                    contentDescription = "Coin Details Link" },
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             Text(
                 text = "${coin.rank}.  ${coin.name} (${coin.symbol})",
+                modifier = Modifier
+                    .semantics {
+                        contentDescription = "Coin Card Labels Data"
+                        testTag = "Coin Card Labels Tag"
+                    },
                 color = MaterialTheme.colors.onBackground,
                 style = MaterialTheme.typography.body1,
                 overflow = TextOverflow.Ellipsis
@@ -55,9 +72,13 @@ fun CoinListItem(
                 color = if(coin.is_active) Color.Green else Color.Red,
                 textAlign = TextAlign.End,
                 style = MaterialTheme.typography.body2,
-                modifier = Modifier.align(CenterVertically)
+                modifier = Modifier
+                    .align(CenterVertically)
+                    .semantics {
+                        contentDescription = "Coin Activity"
+                        testTag = "Coin Activity Tag"
+                    }
             )
-
         }
     }
 }

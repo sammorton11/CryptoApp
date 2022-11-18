@@ -1,14 +1,14 @@
 package com.samm.cryptoapp
 
-import android.graphics.Color
-import androidx.compose.ui.test.assertIsDisplayed
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.test.*
 import androidx.compose.ui.test.junit4.AndroidComposeTestRule
-import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.test.ext.junit.rules.ActivityScenarioRule
+import org.junit.Assert.assertEquals
 
 abstract class BaseTest {
 
-    fun testVisibility(
+    fun testVisibilityContentDescription(
         composeTestRule: AndroidComposeTestRule<ActivityScenarioRule<MainActivity>, MainActivity>,
         label: String
     ){
@@ -16,14 +16,44 @@ abstract class BaseTest {
         composeTestRule.onNodeWithContentDescription(label).assertIsDisplayed()
     }
 
-    // in progress
+    fun testVisibilityTestTag(
+        composeTestRule: AndroidComposeTestRule<ActivityScenarioRule<MainActivity>, MainActivity>,
+        tag: String
+    ){
+        composeTestRule.onNodeWithTag(tag, true).assertExists()
+        composeTestRule.onNodeWithTag(tag, true).assertIsDisplayed()
+    }
+
     fun testColors(
         composeTestRule: AndroidComposeTestRule<ActivityScenarioRule<MainActivity>, MainActivity>,
-        label: String,
+        testTag: String,
         expectedBackground: Color
     ){
-//        val capturedName = captureToImage().colorSpace.name
-//        assertEquals(expectedBackground.colorSpace.name, capturedName)
-//        composeTestRule.onNodeWithContentDescription(label).assertBackgroundColor()
+        val capturedName = composeTestRule
+            .onNodeWithTag(testTag, true)
+            .captureToImage().colorSpace.name
+
+        assertEquals(expectedBackground.colorSpace.name, capturedName)
+    }
+
+    fun clickButton(
+        rule: AndroidComposeTestRule<ActivityScenarioRule<MainActivity>, MainActivity>,
+        tag: String
+    ){
+        rule.onNodeWithTag(tag, true).performClick()
+    }
+
+    fun isClickable(
+        rule: AndroidComposeTestRule<ActivityScenarioRule<MainActivity>, MainActivity>,
+        tag: String
+    ){
+        rule.onNodeWithTag(tag, true).assertHasClickAction()
+    }
+
+    fun isDisplayed(
+        rule: AndroidComposeTestRule<ActivityScenarioRule<MainActivity>, MainActivity>,
+        tag: String
+    ){
+        rule.onNodeWithTag(tag).assertIsDisplayed()
     }
 }

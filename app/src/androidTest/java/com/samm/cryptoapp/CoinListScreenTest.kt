@@ -2,15 +2,16 @@ package com.samm.cryptoapp
 
 import androidx.activity.compose.setContent
 import androidx.compose.material.Surface
-import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.test.assertTextEquals
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
-import androidx.compose.ui.test.onNodeWithContentDescription
-import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.navigation.compose.rememberNavController
+import androidx.compose.ui.test.onNodeWithText
 import com.samm.cryptoapp.di.AppModule
-import com.samm.cryptoapp.presentation.crypto_list_screen.CoinListScreen
+import com.samm.cryptoapp.fakes_test_shared.FakeDataSource.FakeData.fakeCoinName01
+import com.samm.cryptoapp.fakes_test_shared.TestTags.CoinCardTestTag
+import com.samm.cryptoapp.fakes_test_shared.TestTags.CoinDetailsScreenTag
+import com.samm.cryptoapp.presentation.navigation.Navigation
 import com.samm.cryptoapp.presentation.ui.theme.CryptoAppTheme
-import com.samm.cryptoapp.presentation.viewmodel.CoinListViewModel
+import com.samm.cryptoapp.presentation.ui.theme.TextWhite
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import dagger.hilt.android.testing.UninstallModules
@@ -43,27 +44,41 @@ class CoinListScreenTest: BaseTest() {
             setContent {
                 CryptoAppTheme {
                     Surface {
-                        val context = LocalContext.current
-                        val navController = rememberNavController()
-                        val viewModel = hiltViewModel<CoinListViewModel>()
-                        CoinListScreen(
-                            navController = navController,
-                            context = context,
-                            viewModel = viewModel
-                        )
+                        Navigation(context = this)
                     }
                 }
             }
         }
     }
 
+    @Test
+    fun test_search_field(){
+        testVisibilityContentDescription(composeTestRule, "Search Field")
+        testVisibilityTestTag(composeTestRule, "Search Field Label Tag")
+        testColors(composeTestRule, "Search Field Label Tag", TextWhite)
+        /*
+            todo:
+             - test more - size, style, color, text
+             - Coin Name is not displaying correctly -- Displaying a number instead of name
+         */
+    }
 
     @Test
-    fun test_first(){
-       // composeTestRule.onNodeWithText("Bitcoin (BTC)").assertExists()
+    fun click_coin_list_item(){
+        isClickable(composeTestRule, CoinCardTestTag)
+        clickButton(composeTestRule, CoinCardTestTag)
+        isDisplayed(composeTestRule, CoinDetailsScreenTag) // check if details screen is displayed
+    }
+
+    @Test
+    fun checkUI(){
         composeTestRule.waitForIdle()
-        composeTestRule.onNodeWithContentDescription("Search Field").assertExists()
-        testVisibility(composeTestRule, "Search Field")
         Thread.sleep(5000)
+    }
+
+    @Test
+    fun test_coin_name(){
+        composeTestRule.waitForIdle()
+        composeTestRule.onNodeWithText(fakeCoinName01).assertTextEquals(values = arrayOf(fakeCoinName01), includeEditableText = false)
     }
 }

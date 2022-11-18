@@ -12,13 +12,17 @@ import com.samm.cryptoapp.presentation.ui.theme.CryptoAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 /*
-    Todo:
-     - LightMode not triggering
-     - Test Runner
-     - Test Module
-     - Crypto List Screen test
-     - Crypto Details Screen test
-     - Unit and Integration tests first
+    Todo(Tests):
+     - Fake data is not populating correctly in tests - Test doubles may be setup incorrectly
+     - may need to imitate the retrofit call with fake json data or something
+
+     Todo(Tests):
+      - LightMode not triggering
+      - Test doubles can't be shared - creating separate modules ended in a new issue
+      - Test doubles use data modals and DTO's from production code - might not be best practice
+      - Having to use repeated code for the test doubles until I find a solution.
+      - Trouble understanding setup for API integration tests
+      - Extract String Resources - including test tags and content descriptions
  */
 
 

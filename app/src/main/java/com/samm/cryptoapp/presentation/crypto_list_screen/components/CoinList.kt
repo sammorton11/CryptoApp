@@ -12,13 +12,16 @@ import androidx.navigation.NavController
 import com.samm.cryptoapp.common.Constants.LIST_AMOUNT
 import com.samm.cryptoapp.presentation.crypto_list_screen.CoinsListState
 import com.samm.cryptoapp.presentation.navigation.Screen
+import java.util.*
 
 @Composable
 fun CoinList(state: CoinsListState, searchTerm: String, navController: NavController, context: Context) {
 
     // Data filtered by a search term provided in the text field -- if blank, don't search
     val coinData = if (searchTerm.isNotBlank()) {
-        state.coins.filter { it.name.contains(searchTerm.capitalize()) }
+        state.coins.filter { it.name.contains(searchTerm.replaceFirstChar { firstLetter ->
+            if (firstLetter.isLowerCase()) firstLetter.titlecase(Locale.ROOT) else firstLetter.toString()
+        }) }
     } else {
         state.coins
     }
