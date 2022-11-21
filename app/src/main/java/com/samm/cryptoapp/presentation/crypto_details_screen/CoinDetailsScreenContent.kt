@@ -14,7 +14,6 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.testTag
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.samm.cryptoapp.R
 import com.samm.cryptoapp.presentation.crypto_details_screen.components.*
 
 @Composable
@@ -28,7 +27,7 @@ fun CoinDetailsScreenContent(
             .fillMaxSize()
             .padding(5.dp)
             .semantics {
-                testTag = buildString { append(R.string.coin_details_screen) }
+                testTag = "Coin Details Screen"
             }
     ) {
 
@@ -54,6 +53,7 @@ fun CoinDetailsScreenContent(
                     Tags(coinData)
                     ExploreLinks(coinData, navController)
                     SocialMediaLinks(coinData, navController)
+                    BackButton(navController)
                 }
             }
         }

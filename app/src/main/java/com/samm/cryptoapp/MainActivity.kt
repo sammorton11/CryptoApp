@@ -12,19 +12,27 @@ import com.samm.cryptoapp.presentation.ui.theme.CryptoAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 /*
-    Todo(Tests):
-     - Fake data is not populating correctly in tests - Test doubles may be setup incorrectly
-     - may need to imitate the retrofit call with fake json data or something
 
-     Todo(Tests):
-      - LightMode not triggering
+     (Test Issues):
       - Test doubles can't be shared - creating separate modules ended in a new issue
-      - Test doubles use data modals and DTO's from production code - might not be best practice
+      - The test doubles use data modals and DTO's from production code which can't be seen by
+        the tests.
+
       - Having to use repeated code for the test doubles until I find a solution.
       - Trouble understanding setup for API integration tests
       - Extract String Resources - including test tags and content descriptions
  */
 
+/*
+   Todo:
+        - Add tags to Team, Explore, and Social Media card components
+        - UI tests for the three cards
+        - Create a fake Logo for tests
+        - Figure out why cards do not expand when clicked in tests
+        - Make sure to cover everything for unit tests
+        - Integration tests
+        - Create a separate module for test doubles and fakes - share between modules
+ */
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {

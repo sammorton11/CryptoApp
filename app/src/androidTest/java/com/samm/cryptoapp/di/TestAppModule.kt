@@ -27,7 +27,6 @@ object TestAppModule {
     @Singleton
     fun provideFakeRepository() = object: CryptoRepository {
 
-        // use toCoin() in the fake view models
         override suspend fun getCoinData(): List<CoinDto> {
             return fakeCoins
         }

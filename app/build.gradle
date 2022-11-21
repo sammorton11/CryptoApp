@@ -68,42 +68,58 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_ui_version"
+//    androidTestImplementation 'org.junit.jupiter:junit-jupiter'
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_ui_version"
     debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_ui_version"
 
     //Testing
+
+    // Robo-electric
     testImplementation "org.robolectric:robolectric:4.9"
     // Needed for unit testing API
     testImplementation "androidx.arch.core:core-testing:2.1.0"
     //MockWebserver
     testImplementation('com.squareup.okhttp3:mockwebserver:4.9.1')
+    androidTestImplementation "androidx.arch.core:core-testing:2.1.0"
 
+    // Core
     androidTestImplementation "androidx.test:core:$androidXTestVersion0"
+    androidTestImplementation 'androidx.test:core-ktx:1.5.0'
+    androidTestImplementation 'androidx.test:runner:1.5.1'
+
+    // JUnit4
     testImplementation 'junit:junit:4.13.2'
-    testImplementation 'androidx.test.ext:junit:1.1.3'
+    testImplementation 'androidx.test.ext:junit:1.1.4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
-    androidTestImplementation "androidx.arch.core:core-testing:2.1.0"
-    androidTestImplementation 'androidx.test:core-ktx:1.4.0'
-    androidTestImplementation 'androidx.test:runner:1.4.0'
+    // Compose Testing
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_ui_version"
     debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_ui_version"
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_ui_version"
     testImplementation "androidx.compose.ui:ui-test-junit4:$compose_ui_version"
+
+    // Hilt Testing
     androidTestImplementation 'com.google.dagger:hilt-android-testing:2.42'
     testImplementation 'com.google.dagger:hilt-android-testing:2.42'
     kaptAndroidTest 'com.google.dagger:hilt-android-compiler:2.42'
 
     implementation "androidx.compose.runtime:runtime-livedata:$compose_ui_version"
 
+    // Google Truth
     testImplementation "com.google.truth:truth:1.1.3"
+
+    // Navigation testing
     androidTestImplementation "androidx.navigation:navigation-testing:$nav_version"
     testImplementation "androidx.navigation:navigation-testing:$nav_version"
 
+    // Mockito
     androidTestImplementation 'org.mockito:mockito-core:4.0.0'
     androidTestImplementation 'org.mockito:mockito-inline:3.4.0'
     androidTestImplementation 'com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0'
+
+    // Coroutines Test
     testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4'
+    // Retrofit Mock
     androidTestImplementation 'com.squareup.retrofit2:retrofit-mock:2.9.0'
 
 
@@ -121,9 +137,9 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.5.1"
 
     //Dagger - Hilt
-    // hilt
     implementation "com.google.dagger:hilt-android:2.44"
     kapt "com.google.dagger:hilt-compiler:2.44"
+
     //Navigation
     implementation "androidx.hilt:hilt-navigation-compose:1.0.0"
 
@@ -134,7 +150,6 @@ dependencies {
     implementation "com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2"
 
     implementation("io.coil-kt:coil-compose:2.2.2")
-
     implementation "com.google.accompanist:accompanist-systemuicontroller:0.27.0"
 
 }

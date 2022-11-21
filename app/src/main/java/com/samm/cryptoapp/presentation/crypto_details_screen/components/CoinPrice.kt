@@ -7,6 +7,9 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.testTag
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -21,6 +24,9 @@ fun CoinPrice(state: CoinPriceDetailsState) {
             .padding(bottom = 25.dp)
             .clickable { expanded = !expanded }
             .fillMaxWidth()
+            .semantics {
+                testTag = "Price Card Tag"
+            }
     ) {
 
         // Price
@@ -31,7 +37,12 @@ fun CoinPrice(state: CoinPriceDetailsState) {
             ) {
                 Text(
                     text = "Price (USD):  $$price",
-                    modifier = Modifier.padding(15.dp),
+                    modifier = Modifier
+                        .padding(15.dp)
+                        .semantics {
+                            contentDescription = "Price (USD):  $price"
+                            testTag = "Coin Price Title Tag"
+                        },
                     fontSize = 18.sp,
                     color = MaterialTheme.colors.onBackground,
                     textAlign = TextAlign.Start
@@ -44,6 +55,10 @@ fun CoinPrice(state: CoinPriceDetailsState) {
                         Modifier
                             .fillMaxWidth()
                             .padding(start = 15.dp, end = 15.dp, top = 15.dp)
+                            .semantics {
+                                contentDescription = "Max Supply of coins"
+                                testTag = "Max Supply Tag"
+                            }
                     ) {
                         Text(
                             text = "Max Supply:   ",
