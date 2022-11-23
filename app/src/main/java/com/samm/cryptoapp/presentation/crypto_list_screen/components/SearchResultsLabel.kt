@@ -6,6 +6,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.testTag
 import androidx.compose.ui.unit.dp
 import com.samm.cryptoapp.domain.model.CoinData
 
@@ -16,6 +18,9 @@ fun SearchResultsLabel(coinData: List<CoinData>, searchTerm: String) {
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(15.dp)
+                .semantics {
+                    testTag = "Search Results Label Tag"
+                }
         ) {
             Text(text = "Results for '${searchTerm}' :  ${coinData.size}")
         }

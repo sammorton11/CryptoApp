@@ -53,7 +53,8 @@ fun CoinListItem(
                 .padding(20.dp)
                 .semantics {
                     testTag = "Card Row Button"
-                    contentDescription = "Coin Details Link" },
+                    contentDescription = "Coin Details Link"
+                },
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             Text(

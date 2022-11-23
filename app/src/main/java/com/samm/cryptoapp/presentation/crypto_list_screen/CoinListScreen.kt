@@ -31,7 +31,12 @@ fun CoinListScreen(
     val state = viewModel.state.value // state from the viewModel
     var searchTerm by remember { mutableStateOf("") }
 
-    Box(modifier = Modifier.fillMaxSize()) {
+    Box(modifier = Modifier
+        .fillMaxSize()
+        .semantics {
+            testTag = "Coin List Screen Tag"
+        }
+    ) {
         Column {
 
             CoinListTopBar(navController)

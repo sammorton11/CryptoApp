@@ -3,25 +3,24 @@ package com.samm.cryptoapp.unit_tests.use_case
 import com.google.common.truth.Truth.assertThat
 import com.samm.cryptoapp.common.Resource
 import com.samm.cryptoapp.domain.model.CoinDetailsData
-import com.samm.cryptoapp.fakes.FakeCryptoRepository
-import com.samm.cryptoapp.fakes.FakeDataSource.FakeData.fakeDetailDescription
-import com.samm.cryptoapp.fakes.FakeDataSource.FakeData.fakeDetailName
-import com.samm.cryptoapp.fakes.FakeGetCoinDetailsUseCase
+import com.samm.cryptoapp.util.fakes_test_shared.FakeDataSource.FakeData.CoinDetailsScreenFakes.fakeDetailDescription
+import com.samm.cryptoapp.util.fakes_test_shared.FakeDataSource.FakeData.CoinDetailsScreenFakes.fakeDetailNameCollapsed
+import com.samm.cryptoapp.util.fakes_test_shared.FakeDataSource.FakeData.CoinListScreenFakes.fakeCoinId01
+import com.samm.cryptoapp.util.fakes_test_shared.FakeGetCoinDetailsUseCase
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import org.junit.Before
 import org.junit.Test
 
-class GetCoinDetailsUseCaseTest {
+open class GetCoinDetailsUseCaseTest {
 
-    private var fakeRepository: FakeCryptoRepository = FakeCryptoRepository()
     private var getCoins: FakeGetCoinDetailsUseCase = FakeGetCoinDetailsUseCase()
     private lateinit var fakeUseCaseFlow: Flow<Resource<CoinDetailsData>>
 
     @Before
     fun setUp(): Unit = runBlocking {
-        fakeUseCaseFlow = getCoins.getCoinDetailsFakeResponse("fake_coin_01", fakeRepository)
+        fakeUseCaseFlow = getCoins(fakeCoinId01)
     }
 
     @Test
@@ -32,7 +31,7 @@ class GetCoinDetailsUseCaseTest {
 
     @Test
     fun test_if_use_case_data_is_correct(): Unit = runBlocking {
-        assertThat(fakeUseCaseFlow.first().data?.name).isEqualTo(fakeDetailName)
+        assertThat(fakeUseCaseFlow.first().data?.name).isEqualTo(fakeDetailNameCollapsed)
         assertThat(fakeUseCaseFlow.first().data?.description).isEqualTo(fakeDetailDescription)
     }
 }

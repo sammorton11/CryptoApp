@@ -1,9 +1,13 @@
 <resources>
     <string name="app_name">CryptoApp</string>
-    <string name="fake_coin_name_01">FakeCoin01</string>
-    <string name="fake_coin_name_02">FakeCoin02</string>
-    <string name="fake_coin_name_03">FakeCoin03</string>
+    <string name="fake_coin_name_01">Bitcoin</string>
+    <string name="fake_coin_name_02">FakeCoin</string>
+    <string name="fake_coin_name_03">TestCoin</string>
     <string name="fake_coin_details_name">FakeCoin01_Details</string>
+    <string name="fake_coin_details_description">
+        This is a test description
+    </string>
+    <string name="fake_team_member">John Doe - Tester  </string>
     <string name="test_symbol">test_symbol_02</string>
     <string name="fake_coin_id_01">fake_coin_id_01</string>
     <string name="fake_coin_id_02">fake_coin_id_02</string>
@@ -20,4 +24,12 @@
     <string name="fake_lastUpdatedAt_date">fake_lastUpdatedAt_date</string>
     <string name="coin_details_screen">Coin Details Screen</string>
     <string name="coin_card_test_tag">Coin Card Tag</string>
+    <string name="backButtonLabel">Back</string>
+    <string name="test_title_coin_list_screen">Top 100 Crypto Coins</string>
+    <string name="expected_card_data">1.  Bitcoin (BTC)</string>
+    <string name="is_active_text_test">active</string>
+    <string name="inactive_test_text">inactive</string>
+    <string name="coin_test_symbol">BTC</string>
+    <string name="description_card_title">Description</string>
+    <string name="tags_text">Test Tag</string>
 </resources>

@@ -1,6 +1,7 @@
 package com.samm.cryptoapp.presentation.crypto_details_screen.components
 
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.focusable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -11,6 +12,8 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.testTag
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.samm.cryptoapp.common.Constants
@@ -27,6 +30,9 @@ fun ExploreLinks(data: CoinDetailsData, navController: NavController) {
             .padding(bottom = 25.dp)
             .clickable { expanded = !expanded }
             .fillMaxWidth()
+            .semantics {
+                testTag = "Explore Card Tag"
+            }
     ) {
         cardLength = 0.dp
 
@@ -36,7 +42,13 @@ fun ExploreLinks(data: CoinDetailsData, navController: NavController) {
         ) {
             Text(
                 text = "Explore",
-                modifier = Modifier.padding(15.dp),
+                modifier = Modifier
+                    .padding(15.dp)
+                    .focusable()
+                    .semantics {
+                        testTag = "Explore Title Tag"
+
+                    },
                 fontSize = Constants.HEADING_SIZE,
                 color = MaterialTheme.colors.onBackground
             )

@@ -10,7 +10,8 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.testTag
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.google.accompanist.flowlayout.FlowRow
@@ -24,6 +25,9 @@ fun Tags(data: CoinDetailsData) {
             .padding(bottom = 25.dp)
             .clickable { expanded = !expanded }
             .fillMaxWidth()
+            .semantics {
+                testTag = "Tags Card Tag"
+            }
     ) {
         Column(
             verticalArrangement = Arrangement.Center
@@ -31,7 +35,11 @@ fun Tags(data: CoinDetailsData) {
             // Team
             Text(
                 text = "Tags",
-                modifier = Modifier.padding(15.dp),
+                modifier = Modifier
+                    .padding(15.dp)
+                    .semantics {
+                        testTag = "Tags Title Tag"
+                    },
                 fontSize = 18.sp,
                 color = MaterialTheme.colors.onBackground
             )
@@ -44,7 +52,12 @@ fun Tags(data: CoinDetailsData) {
                         .padding(15.dp)
                 ) {
                     data.tags.forEach { tag ->
-                        Text(text = "${tag?.name}  ")
+                        Text(
+                            text = "${tag?.name}  ",
+                            modifier = Modifier.semantics {
+                                testTag = "Tags Details Tag"
+                            }
+                        )
                     }
                 }
             }

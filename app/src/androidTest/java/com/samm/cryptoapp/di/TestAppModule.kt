@@ -7,9 +7,9 @@ import com.samm.cryptoapp.domain.repository.CryptoRepository
 import com.samm.cryptoapp.domain.use_case.get_coin_details_data.GetSingleCoinPriceUseCase
 import com.samm.cryptoapp.domain.use_case.get_coin_details_data.GetSingleCoinUseCase
 import com.samm.cryptoapp.domain.use_case.get_list_of_coins.GetAllCoinsUseCase
-import com.samm.cryptoapp.fakes_test_shared.FakeDataSource.FakeDto.fakeCoinDetails
-import com.samm.cryptoapp.fakes_test_shared.FakeDataSource.FakeDto.fakeCoinPriceDetails
-import com.samm.cryptoapp.fakes_test_shared.FakeDataSource.FakeDto.fakeCoins
+import com.samm.cryptoapp.util.fakes_test_shared.FakeDataSource.FakeDto.fakeCoinDetails
+import com.samm.cryptoapp.util.fakes_test_shared.FakeDataSource.FakeDto.fakeCoinPriceDetails
+import com.samm.cryptoapp.util.fakes_test_shared.FakeDataSource.FakeDto.fakeCoins
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.components.SingletonComponent
@@ -27,7 +27,6 @@ object TestAppModule {
     @Singleton
     fun provideFakeRepository() = object: CryptoRepository {
 
-        // use toCoin() in the fake view models
         override suspend fun getCoinData(): List<CoinDto> {
             return fakeCoins
         }

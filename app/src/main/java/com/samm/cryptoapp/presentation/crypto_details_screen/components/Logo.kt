@@ -6,6 +6,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.FilterQuality
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.testTag
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.samm.cryptoapp.domain.model.CoinDetailsData
@@ -25,8 +27,11 @@ fun Logo(data: CoinDetailsData) {
                 model = "${data.logo}",
                 modifier = Modifier
                     .width(200.dp)
-                    .height(200.dp),
-                contentDescription = "",
+                    .height(200.dp)
+                    .semantics {
+                        testTag = "Company Logo Tag"
+                    },
+                contentDescription = "Company Logo",
                 alignment = Alignment.TopCenter,
                 contentScale = ContentScale.FillWidth,
                 filterQuality = FilterQuality.High

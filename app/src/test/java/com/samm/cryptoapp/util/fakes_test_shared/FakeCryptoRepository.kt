@@ -4,9 +4,9 @@ import com.samm.cryptoapp.data.remote.dto.CoinDto
 import com.samm.cryptoapp.data.remote.dto.coin_details.CoinDetailsDto
 import com.samm.cryptoapp.data.remote.dto.price_details.CoinPriceDetailsDtoItem
 import com.samm.cryptoapp.domain.repository.CryptoRepository
-import com.samm.cryptoapp.fakes.FakeDataSource.fakeCoinDetails
-import com.samm.cryptoapp.fakes.FakeDataSource.fakeCoinPriceDetails
-import com.samm.cryptoapp.fakes.FakeDataSource.fakeCoins
+import com.samm.cryptoapp.util.fakes_test_shared.FakeDataSource.FakeDto.fakeCoinDetails
+import com.samm.cryptoapp.util.fakes_test_shared.FakeDataSource.FakeDto.fakeCoinPriceDetails
+import com.samm.cryptoapp.util.fakes_test_shared.FakeDataSource.FakeDto.fakeCoins
 
 class FakeCryptoRepository: CryptoRepository {
 

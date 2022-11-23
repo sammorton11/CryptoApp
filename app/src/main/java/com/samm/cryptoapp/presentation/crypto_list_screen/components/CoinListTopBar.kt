@@ -10,6 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.testTag
 import androidx.navigation.NavController
 
 @Composable
@@ -17,7 +18,10 @@ fun CoinListTopBar(navController: NavController) {
     TopAppBar(
         modifier = Modifier
             .fillMaxWidth()
-            .semantics { contentDescription = "Top Bar" },
+            .semantics {
+                contentDescription = "Top Bar"
+                testTag = "Top Bar Test Tag"
+            },
         backgroundColor = Color.Transparent
     ) {
         Row(
