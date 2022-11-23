@@ -11,13 +11,14 @@ import retrofit2.HttpException
 import java.io.IOException
 import javax.inject.Inject
 
-class GetAllCoinsUseCase @Inject constructor(
+// Todo: Question -
+
+open class GetAllCoinsUseCase @Inject constructor(
     private val repository: CryptoRepository
 ) {
-    operator fun invoke(): Flow<Resource<List<CoinData>>> = flow {
+    open operator fun invoke(): Flow<Resource<List<CoinData>>> = flow {
 
         try {
-
             emit(Resource.Loading())
             val coins = repository.getCoinData().map { it.toCoin() }
             Log.d("COIN DATA", coins[0].name)

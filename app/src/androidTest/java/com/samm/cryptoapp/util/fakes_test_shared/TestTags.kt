@@ -1,4 +1,4 @@
-package com.samm.cryptoapp.fakes_test_shared
+package com.samm.cryptoapp.util.fakes_test_shared
 
 
 // Might just make this a class with inner classes - though they are just strings
@@ -20,19 +20,46 @@ object TestTags {
     }
 
     object CoinListItemTags{
-        const val CoinDetailsScreenTag = "Coin Details Screen"
+
         const val CoinCardTestTag = "Coin Card Tag"
         const val CoinCardLabelsTag = "Coin Card Labels Tag"
         const val CoinActivityTag = "Coin Activity Tag"
     }
 
     object CoinDetailsTags {
+        const val CoinDetailsScreenTag = "Coin Details Screen"
+        const val CompanyLogoTag = "Company Logo Tag"
         const val BackButtonTestTag = "Back Button Test Tag"
+
         const val CoinPriceTitleTag = "Coin Price Title Tag"
         const val MaxSupplyTestTag = "Max Supply Tag"
         const val PriceCardTag = "Price Card Tag"
+        const val PriceCardDetailsTag = "Price Card Details Tag"
+
         const val DescriptionTag = "Description Card Tag"
         const val DescriptionTitleTag = "Description Title Tag"
+        const val DescriptionTitleExpandedTag = "Description Title Expanded Tag"
+        const val DescriptionTextTag = "Description Text Test Tag"
+
+        const val TeamTitleTestTag = "Team Card Title Tag"
+        const val TeamDetailsTestTag = "Team Details Tag"
+        const val TeamCardTestTag = "Team Card Tag"
+
+        const val TagsDetailsTag = "Tags Details Tag"
+        const val TagsTitleTag = "Tags Title Tag"
+        const val TagsCardTag = "Tags Card Tag"
+
+        const val SocialMediaTitleTag = "Social Media Title Tag"
+        const val SocialMediaDetailsTag = "Social Media Details Tag"
+        const val SocialMedialCardTag = "Social Media Card Tag"
+
+        const val ExploreTitleTag = "Explore Title Tag"
+        const val ExploreDetailsTag = "Explore Details Tag"
+        const val ExploreCardTag = "Explore Card Tag"
+
+        const val WebsiteButtonTag = "Website Button Tag"
+        const val LinkTestTag = "Link Test Tag"
+
     }
 
     object CoinPriceDetailsTags {

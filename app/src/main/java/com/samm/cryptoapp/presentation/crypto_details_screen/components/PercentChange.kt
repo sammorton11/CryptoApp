@@ -30,7 +30,11 @@ fun PercentChange(data: CoinPriceDetailsData) {
     val change1y = data.quotes.USD.percent_change_1y
 
     Row(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier
+            .fillMaxWidth()
+            .semantics {
+                       testTag = "Price Card Details Tag"
+            },
         horizontalArrangement = Arrangement.SpaceAround,
         verticalAlignment = Alignment.CenterVertically
     ) {

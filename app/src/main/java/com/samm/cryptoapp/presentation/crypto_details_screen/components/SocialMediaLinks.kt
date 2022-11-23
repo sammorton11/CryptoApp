@@ -1,6 +1,7 @@
 package com.samm.cryptoapp.presentation.crypto_details_screen.components
 
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.focusable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -11,6 +12,8 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.testTag
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.samm.cryptoapp.common.Constants
@@ -24,6 +27,7 @@ fun SocialMediaLinks(data: CoinDetailsData, navController: NavController) {
     val facebook = dataLinks?.facebook
     val reddit = dataLinks?.reddit
     val sourceCode = dataLinks?.source_code
+
     var expanded by remember { mutableStateOf(false) }
     val list = listOf(youTube, facebook, reddit, sourceCode)
     var cardLength by remember { mutableStateOf(0.dp) }
@@ -32,7 +36,11 @@ fun SocialMediaLinks(data: CoinDetailsData, navController: NavController) {
         Modifier
             .padding(bottom = 25.dp)
             .clickable { expanded = !expanded }
+            .focusable()
             .fillMaxWidth()
+            .semantics {
+                testTag = "Social Media Card Tag"
+            }
     ) {
         cardLength = 0.dp
 
@@ -42,7 +50,12 @@ fun SocialMediaLinks(data: CoinDetailsData, navController: NavController) {
         ) {
             Text(
                 text = "Social Media",
-                modifier = Modifier.padding(15.dp),
+                modifier = Modifier
+                    .padding(15.dp)
+                    .focusable()
+                    .semantics {
+                               testTag = "Social Media Title Tag"
+                    },
                 fontSize = Constants.HEADING_SIZE,
                 color = MaterialTheme.colors.onBackground
             )

@@ -51,7 +51,11 @@ fun Description(data: CoinDetailsData) {
                 data.name?.let {
                     Text(
                         text = it,
-                        modifier = Modifier.padding(15.dp),
+                        modifier = Modifier
+                            .padding(15.dp)
+                            .semantics {
+                                       testTag = "Description Title Expanded Tag"
+                            },
                         fontSize = HEADING_SIZE,
                         color = MaterialTheme.colors.onBackground
                     )
@@ -60,7 +64,9 @@ fun Description(data: CoinDetailsData) {
                 data.description?.let {
                     Text(text = it, modifier = Modifier.padding(
                         start = 15.dp, bottom = 15.dp, end = 15.dp
-                    ))
+                    ).semantics {
+                        testTag = "Description Text Test Tag"
+                    })
                 }
             }
         }

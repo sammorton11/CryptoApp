@@ -10,10 +10,10 @@ import retrofit2.HttpException
 import java.io.IOException
 import javax.inject.Inject
 
-class GetSingleCoinUseCase @Inject constructor(
+open class GetSingleCoinUseCase @Inject constructor(
     private val repository: CryptoRepository
 ) {
-    operator fun invoke(id: String): Flow<Resource<CoinDetailsData>> = flow {
+    open operator fun invoke(id: String): Flow<Resource<CoinDetailsData>> = flow {
 
         try {
             emit(Resource.Loading())

@@ -10,10 +10,10 @@ import com.samm.cryptoapp.domain.model.CoinData
 import com.samm.cryptoapp.domain.model.CoinDetailsData
 import com.samm.cryptoapp.domain.model.CoinPriceDetailsData
 import com.samm.cryptoapp.fakes.FakeCryptoRepository
-import com.samm.cryptoapp.fakes.FakeDataSource.FakeData.fakeCoinId01
-import com.samm.cryptoapp.fakes.FakeDataSource.FakeData.fakeCoinId02
-import com.samm.cryptoapp.fakes.FakeDataSource.FakeData.fakeCoinId03
-import com.samm.cryptoapp.fakes.FakeGetAllCoinsUseCase
+import com.samm.cryptoapp.util.fakes_test_shared.FakeDataSource.FakeData.CoinListScreenFakes.fakeCoinId01
+import com.samm.cryptoapp.util.fakes_test_shared.FakeDataSource.FakeData.CoinListScreenFakes.fakeCoinId02
+import com.samm.cryptoapp.util.fakes_test_shared.FakeDataSource.FakeData.CoinListScreenFakes.fakeCoinId03
+import com.samm.cryptoapp.util.fakes_test_shared.FakeGetAllCoinsUseCase
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.runBlocking
 import org.junit.Before
@@ -28,7 +28,7 @@ class CoinRepositoryTest {
 
     @Before
     fun setUp(): Unit = runBlocking {
-        fakeUseCaseFlow = getCoins.getCoinsFakeResponse(fakeRepository)
+        fakeUseCaseFlow = getCoins()
     }
 
     @Test

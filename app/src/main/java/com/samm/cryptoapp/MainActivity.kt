@@ -12,26 +12,20 @@ import com.samm.cryptoapp.presentation.ui.theme.CryptoAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 /*
+   Todo (Issues in-progress):
+        - I some of my end-to-end tests are actually integration tests?
+        - How to test network error?
+        - Organizing tests into separated inner classes throws errors
+        - Test links not showing up in semantics tree and are failing isDisplayed tests but are verified
+        - to be displayed when manual testing - passing 'exists' tests - weird
+        - isNotDisplayed() tests still fail after collapsing card and text is not displayed - confused
 
-     (Test Issues):
-      - Test doubles can't be shared - creating separate modules ended in a new issue
-      - The test doubles use data modals and DTO's from production code which can't be seen by
-        the tests.
-
-      - Having to use repeated code for the test doubles until I find a solution.
-      - Trouble understanding setup for API integration tests
-      - Extract String Resources - including test tags and content descriptions
- */
-
-/*
-   Todo:
-        - Add tags to Team, Explore, and Social Media card components
-        - UI tests for the three cards
-        - Create a fake Logo for tests
-        - Figure out why cards do not expand when clicked in tests
-        - Make sure to cover everything for unit tests
-        - Integration tests
-        - Create a separate module for test doubles and fakes - share between modules
+        Todo:
+         - Issue sharing fakes/test-doubles between androidTest and test packages
+         - Data models from production code are used in fakes, so when using a separate library module
+         - containing the fake data and then importing that library module to share between packages,
+         - the separate library module can't see that production code data models. ugh lol.
+         - Need to figure out how to test the progress bar
  */
 
 @AndroidEntryPoint
