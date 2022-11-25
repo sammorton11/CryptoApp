@@ -98,7 +98,7 @@ fun CoinListScreen(
                     .align(Alignment.Center)
                     .semantics {
                         contentDescription = "Error Text"
-                        testTag = "Error Tag"},
+                        testTag = "Error Tag" },
             )
         }
         if(state.isLoading) {

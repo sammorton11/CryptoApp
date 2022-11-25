@@ -1,4 +1,4 @@
-package com.samm.cryptoapp.fakes
+package com.samm.cryptoapp.util.fakes_test_shared
 
 import com.samm.cryptoapp.data.remote.dto.coin_details.Links
 import com.samm.cryptoapp.data.remote.dto.coin_details.Tag
@@ -6,6 +6,7 @@ import com.samm.cryptoapp.data.remote.dto.coin_details.Team
 import com.samm.cryptoapp.data.remote.dto.price_details.BTC
 import com.samm.cryptoapp.data.remote.dto.price_details.USD
 
+// May not be used - may delete here soon - part of fake data shared issue
 object FakeTeam {
     
     val fakeTeamMember = Team(

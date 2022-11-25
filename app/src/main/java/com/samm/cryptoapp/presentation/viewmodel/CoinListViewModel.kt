@@ -5,7 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.samm.cryptoapp.common.Resource
-import com.samm.cryptoapp.domain.use_case.get_list_of_coins.GetAllCoinsUseCase
+import com.samm.cryptoapp.domain.use_case.get_list_of_coins.GetListOfCoinsUseCaseImpl
 import com.samm.cryptoapp.presentation.crypto_list_screen.CoinsListState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
@@ -14,7 +14,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class CoinListViewModel @Inject constructor(
-    private val getAllCoinsUseCase: GetAllCoinsUseCase
+    private val getAllCoinsUseCase: GetListOfCoinsUseCaseImpl
 ): ViewModel() {
 
     private val _state = mutableStateOf(CoinsListState()) // not exposed because mutable

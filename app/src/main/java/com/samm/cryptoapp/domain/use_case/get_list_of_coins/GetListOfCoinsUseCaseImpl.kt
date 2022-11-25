@@ -1,8 +1,9 @@
-package com.samm.cryptoapp.domain.use_case.get_coin_details_data
+package com.samm.cryptoapp.domain.use_case.get_list_of_coins
 
+import android.util.Log
 import com.samm.cryptoapp.common.Resource
-import com.samm.cryptoapp.data.remote.dto.coin_details.toCoinDetail
-import com.samm.cryptoapp.domain.model.CoinDetailsData
+import com.samm.cryptoapp.data.remote.dto.toCoin
+import com.samm.cryptoapp.domain.model.CoinData
 import com.samm.cryptoapp.domain.repository.CryptoRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -10,15 +11,18 @@ import retrofit2.HttpException
 import java.io.IOException
 import javax.inject.Inject
 
-open class GetSingleCoinUseCase @Inject constructor(
+class GetListOfCoinsUseCaseImpl @Inject constructor(
     private val repository: CryptoRepository
-) {
-    open operator fun invoke(id: String): Flow<Resource<CoinDetailsData>> = flow {
+): GetListOfCoinsUseCase {
+
+    override operator fun invoke(): Flow<Resource<List<CoinData>>> = flow {
 
         try {
             emit(Resource.Loading())
-            val coin = repository.getCoinDetails(id).toCoinDetail()
-            emit(Resource.Success(coin))
+            val coins = repository.getCoinData().map { it.toCoin() }
+            Log.d("COIN DATA", coins[0].name)
+            emit(Resource.Success(coins))
+            Log.d("COIN DATA", coins[0].name)
 
         } catch (e: HttpException){
             emit(Resource.Error(e.localizedMessage ?: "Unexpected Error"))

@@ -1,0 +1,37 @@
+
+
+        Having some issues learning to write tests. Made some notes!
+
+        Learning about MockK and Mockito to solve some of these issues.
+        Been having a lot of fun with this!
+
+        Issues/Questions:
+
+        - I think some of my end-to-end tests may actually be integration tests?
+
+        - How to test network error?
+
+        - Organizing tests into separated inner classes throws errors.
+
+        - Tests for the explore and social media links are not showing up in the semantics tree,
+          and are failing isDisplayed tests but are obviously displayed when manual testing and
+          they pass assertExists.. weird.
+
+        - isNotDisplayed tests still fail after collapsing card and text is not displayed. confused.
+
+        - Issue sharing fakes/test-doubles between androidTest and test packages
+
+
+        - Data models from production code are used in fakes, so when using a separate
+          library module containing the fake data, and then importing that library module to share
+          between packages, the separate library module can't see the models within the production
+          code.
+
+          Maybe I can mock the models with MockK or Mockito or something?
+          Or maybe there's a way to get the library module to share those data models and DTOs?
+
+
+        - Need to figure out how to test the progress bar :)
+
+        - Is there a way to separate the Test Rules into a separate file to share between tests?
+          Don't want to have keep writing those for each test if I don't have to.

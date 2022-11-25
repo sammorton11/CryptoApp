@@ -1,30 +1,28 @@
 package com.samm.cryptoapp.unit_tests.use_case
 
-import android.content.Context
-import androidx.test.core.app.ApplicationProvider
-import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.google.common.truth.Truth
 import com.samm.cryptoapp.common.Resource
 import com.samm.cryptoapp.domain.model.CoinPriceDetailsData
+import com.samm.cryptoapp.domain.use_case.get_coin_details_data.GetSingleCoinPriceUseCaseImpl
 import com.samm.cryptoapp.util.fakes_test_shared.FakeDataSource.FakeData.CoinListScreenFakes.fakeCoinId01
-import com.samm.cryptoapp.util.fakes_test_shared.FakeGetCoinPriceDetailsUseCase
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.mockito.Mock
+import org.mockito.junit.MockitoJUnitRunner
 
-@RunWith(AndroidJUnit4::class)
+@RunWith(MockitoJUnitRunner::class)
 class GetSingleCoinPriceDetailsTest {
 
-    private var getCoins: FakeGetCoinPriceDetailsUseCase = FakeGetCoinPriceDetailsUseCase()
+    @Mock
+    private lateinit var getCoins: GetSingleCoinPriceUseCaseImpl
     private lateinit var fakeUseCaseFlow: Flow<Resource<CoinPriceDetailsData>>
-    private lateinit var instrumentationCtx: Context
 
     @Before
     fun setUp(): Unit = runBlocking {
-        instrumentationCtx = ApplicationProvider.getApplicationContext<Context>()
         fakeUseCaseFlow = getCoins(fakeCoinId01)
     }
 

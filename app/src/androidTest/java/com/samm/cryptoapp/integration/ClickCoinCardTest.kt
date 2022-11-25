@@ -8,7 +8,10 @@ import com.samm.cryptoapp.di.AppModule
 import com.samm.cryptoapp.presentation.navigation.Navigation
 import com.samm.cryptoapp.presentation.ui.theme.CryptoAppTheme
 import com.samm.cryptoapp.util.BaseTest
-import com.samm.cryptoapp.util.fakes_test_shared.TestTags
+import com.samm.cryptoapp.util.fakes_test_shared.TestTags.CoinDetailsTags.BackButtonTestTag
+import com.samm.cryptoapp.util.fakes_test_shared.TestTags.CoinDetailsTags.CoinDetailsScreenTag
+import com.samm.cryptoapp.util.fakes_test_shared.TestTags.CoinListItemTags.CoinCardTestTag
+import com.samm.cryptoapp.util.fakes_test_shared.TestTags.CoinListScreenTags.CoinListScreenTag
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import dagger.hilt.android.testing.UninstallModules
@@ -28,7 +31,7 @@ class ClickCoinCardTest: BaseTest() {
     @Before
     fun setUp() {
         hiltRule.inject()
-        composeTestRule.activity.apply{
+        composeTestRule.activity.apply {
             setContent {
                 CryptoAppTheme {
                     Surface {
@@ -39,11 +42,15 @@ class ClickCoinCardTest: BaseTest() {
         }
     }
     /*
-        Navigate to the Details screen when coin card is clicked
+        Test that clicking the Coin Card opens the Coin Details Screen and the Back Button returns
+        the user back to the main screen.
      */
     @Test
     fun test_navigateToCoinDetailsScreen() {
-        clickButton(composeTestRule, TestTags.CoinListItemTags.CoinCardTestTag)
-        isDisplayed(composeTestRule, TestTags.CoinDetailsTags.CoinDetailsScreenTag)
+        clickButton(composeTestRule, CoinCardTestTag)
+        isDisplayed(composeTestRule, CoinDetailsScreenTag)
+        scrollToElementWithTag(composeTestRule, BackButtonTestTag)
+        clickButton(composeTestRule, BackButtonTestTag)
+        isDisplayed(composeTestRule, CoinListScreenTag)
     }
 }

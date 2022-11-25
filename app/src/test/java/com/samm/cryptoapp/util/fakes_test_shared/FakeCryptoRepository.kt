@@ -1,4 +1,4 @@
-package com.samm.cryptoapp.fakes
+package com.samm.cryptoapp.util.fakes_test_shared
 
 import com.samm.cryptoapp.data.remote.dto.CoinDto
 import com.samm.cryptoapp.data.remote.dto.coin_details.CoinDetailsDto

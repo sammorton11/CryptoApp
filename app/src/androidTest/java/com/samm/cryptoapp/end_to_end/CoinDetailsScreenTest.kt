@@ -15,7 +15,6 @@ import com.samm.cryptoapp.util.BaseTest
 import com.samm.cryptoapp.util.TestContext.appContext
 import com.samm.cryptoapp.util.fakes_test_shared.FakeDataSource.FakeData.CoinDetailsScreenFakes.fakeDetailNameCollapsed
 import com.samm.cryptoapp.util.fakes_test_shared.FakeDataSource.FakeData.CoinDetailsScreenFakes.fakeDetailNameExpanded
-import com.samm.cryptoapp.util.fakes_test_shared.FakeDataSource.FakeData.CoinDetailsScreenFakes.fakeTeamMemberName
 import com.samm.cryptoapp.util.fakes_test_shared.FakeDataSource.FakeData.CoinDetailsScreenFakes.test_explorer
 import com.samm.cryptoapp.util.fakes_test_shared.FakeDataSource.FakeData.CoinDetailsScreenFakes.test_facebook
 import com.samm.cryptoapp.util.fakes_test_shared.FakeDataSource.FakeData.CoinDetailsScreenFakes.test_link_extended_url
@@ -72,11 +71,10 @@ import org.junit.Test
 
 /*
     Todo:
-     - 'Not displayed' methods not working properly - it fails assertExists but I'm using assertDoesNotExist?
+     - 'Not displayed' methods not working properly
      - assert no overlaps in text
      - Would like to put test functions for each UI component within their own inner classes but it throws errors
-     - Test functionality for Team, Tags, Social Media, Explore cards
-     - click card make sure that text is displayed when expanded and not displayed when collapsed
+     - assert card details are not displayed when collapsed
  */
 
 /*
@@ -85,7 +83,7 @@ import org.junit.Test
   - to be displayed when manual testing - passing 'exists' tests
   - isNotDisplayed tests for card details still fail after collapsing card - confused
   - Cannot create inner test classes without throwing errors
-  - Cannot share fakes/test doubles between androidTest and test packages
+  - Cannot share fakes/test doubles between androidTest and test packages - Data Models are used in fakes
  */
 
 
@@ -127,9 +125,9 @@ class CoinDetailsScreenTest: BaseTest() {
     @Test
     fun test_Price_Card_Visibility(){
 
-        isClickable(composeTestRule, PriceCardTag)
         existsTestTag(composeTestRule, CoinPriceTitleTag)
         existsTestTag(composeTestRule, PriceCardTag)
+        isClickable(composeTestRule, PriceCardTag)
         isDisplayed(composeTestRule, CoinPriceTitleTag)
         isDisplayed(composeTestRule, PriceCardTag)
         isDisplayed(composeTestRule, MaxSupplyTestTag)
@@ -233,11 +231,14 @@ class CoinDetailsScreenTest: BaseTest() {
 
     @Test
     fun test_Description_Card_Functionality(){
-        clickButton(composeTestRule, DescriptionTag) // expand card
-        wait(composeTestRule)
+
         existsTestTag(composeTestRule, DescriptionTextTag)
-        isDisplayed(composeTestRule, DescriptionTextTag) // details
+        existsTestTag(composeTestRule, DescriptionTag)
+
+        clickButton(composeTestRule, DescriptionTag) // expand card
         textIsCorrect(composeTestRule, DescriptionTitleExpandedTag, fakeDetailNameExpanded)
+        isDisplayed(composeTestRule, DescriptionTextTag) // details
+
         clickButton(composeTestRule, DescriptionTag) // collapse card
         textIsCorrect(composeTestRule, DescriptionTitleTag, fakeDetailNameCollapsed)
         isNotDisplayed(composeTestRule, DescriptionTextTag)
@@ -245,24 +246,31 @@ class CoinDetailsScreenTest: BaseTest() {
 
     @Test
     fun test_Team_Card_Visibility(){
+
         existsTestTag(composeTestRule, TeamTitleTestTag)
         existsTestTag(composeTestRule, TeamCardTestTag)
+
         isDisplayed(composeTestRule, TeamTitleTestTag)
         isDisplayed(composeTestRule, TeamCardTestTag)
+
         isClickable(composeTestRule, TeamCardTestTag)
         textIsCorrect(composeTestRule, TeamTitleTestTag, "Team")
+
         testColors(composeTestRule, TeamTitleTestTag, TextWhite)
         testColors(composeTestRule, TeamCardTestTag, DarkGray)
     }
 
     @Test
     fun test_Team_Card_Functionality(){
-        clickButton(composeTestRule, TeamCardTestTag) // expand card
-        wait(composeTestRule)
+
+        existsTestTag(composeTestRule, TagsCardTag)
+        existsTestTag(composeTestRule, TagsTitleTag)
         existsTestTag(composeTestRule, TeamDetailsTestTag)
+        isDisplayed(composeTestRule, TagsTitleTag) // Todo: start here - go over this test
+
+        clickButton(composeTestRule, TeamCardTestTag) // expand card
         isDisplayed(composeTestRule, TeamDetailsTestTag) // details
-        existsText(composeTestRule, fakeTeamMemberName)
-        isTextDisplayed(composeTestRule, fakeTeamMemberName)
+
         clickButton(composeTestRule, TeamCardTestTag) // collapse card
         isNotDisplayed(composeTestRule, TeamDetailsTestTag)
     }
@@ -293,12 +301,14 @@ class CoinDetailsScreenTest: BaseTest() {
 
     @Test
     fun test_Explore_Card_Visibility(){
-        scrollToTextElement(composeTestRule, "Explore")
         existsTestTag(composeTestRule, ExploreTitleTag)
         existsTestTag(composeTestRule, ExploreCardTag)
+        scrollToElementWithTag(composeTestRule, ExploreTitleTag)
         textIsCorrect(composeTestRule, ExploreTitleTag, "Explore")
-        testColors(composeTestRule, ExploreTitleTag, TextWhite)
+        isDisplayed(composeTestRule, ExploreTitleTag)
+        isDisplayed(composeTestRule, ExploreCardTag)
         isClickable(composeTestRule, ExploreCardTag)
+        testColors(composeTestRule, ExploreTitleTag, TextWhite)
         testColors(composeTestRule, ExploreCardTag, DarkGray)
     }
 

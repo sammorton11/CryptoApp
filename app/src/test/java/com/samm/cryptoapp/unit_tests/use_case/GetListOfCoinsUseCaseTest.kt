@@ -1,21 +1,27 @@
 package com.samm.cryptoapp.unit_tests.use_case
 
+import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.google.common.truth.Truth.assertThat
 import com.samm.cryptoapp.common.Resource
 import com.samm.cryptoapp.domain.model.CoinData
+import com.samm.cryptoapp.util.fakes_test_shared.FakeCryptoRepository
 import com.samm.cryptoapp.util.fakes_test_shared.FakeDataSource.FakeData.CoinListScreenFakes.fakeCoinName01
 import com.samm.cryptoapp.util.fakes_test_shared.FakeDataSource.FakeData.CoinListScreenFakes.fakeCoinName02
 import com.samm.cryptoapp.util.fakes_test_shared.FakeDataSource.FakeData.CoinListScreenFakes.fakeCoinName03
-import com.samm.cryptoapp.util.fakes_test_shared.FakeGetAllCoinsUseCase
+import com.samm.cryptoapp.util.fakes_test_shared.FakeGetListOfCoinsUseCase
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import org.junit.Before
 import org.junit.Test
+import org.junit.runner.RunWith
 
-class GetAllCoinsUseCaseTest {
+@RunWith(AndroidJUnit4::class)
+class GetListOfCoinsUseCaseTest {
 
-    private var getCoins: FakeGetAllCoinsUseCase = FakeGetAllCoinsUseCase()
+    private var fakeRepository: FakeCryptoRepository = FakeCryptoRepository()
+    private var getCoins: FakeGetListOfCoinsUseCase = FakeGetListOfCoinsUseCase()
+
     private lateinit var fakeUseCaseFlow: Flow<Resource<List<CoinData>>>
 
     @Before
@@ -25,7 +31,6 @@ class GetAllCoinsUseCaseTest {
 
     @Test
     fun test_that_use_case_is_not_empty(): Unit = runBlocking {
-        // Check that the data in the first emit in the fake use case flow is not empty
         assertThat(fakeUseCaseFlow.first().data).isNotNull()
     }
 
