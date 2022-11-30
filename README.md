@@ -9,7 +9,7 @@ The first page displays the list of the top coins in the market. When the user c
 - Hilt for dependency injection
 - Jetpack Compose framework for the UI
 
-Tests are still in progress as I am still new to testing.
+Tests are still in progress!
 
 Main Screen:
 
