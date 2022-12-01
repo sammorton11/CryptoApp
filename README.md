@@ -1,7 +1,7 @@
 # CryptoApp
 
 Crypto Currency application build in Android Studio using Kotlin. This is my favorite project that I've built! 
-The first page displays the list of the top coins in the market. When the user clicks a coin, they are brought to the selected coins detail page where they can view the current data on that coin.
+The first page displays the list of the top 100 coins in the market. When the user clicks a coin, they are brought to the detail page where they can view the current data on the selected coin.
 
 - MVVM
 - Clean Architecture for scalability and ease of testing
@@ -13,11 +13,10 @@ Tests are still in progress!
 
 Main Screen:
 
-<img width="371" alt="Screen Shot 2022-11-18 at 12 08 25 PM" src="https://user-images.githubusercontent.com/86651172/202773758-0e684325-1fa3-4f66-b32e-5bcfc4fd3dc6.png">
-
+<img width="305" alt="Screen Shot 2022-11-30 at 7 38 41 PM" src="https://user-images.githubusercontent.com/86651172/204945314-fc863431-cf21-47ab-933b-f2982f7580cc.png">
 
 
 
 Detail Screen:
 
-<img width="368" alt="Screen Shot 2022-11-18 at 12 12 16 PM" src="https://user-images.githubusercontent.com/86651172/202774268-f28c2ca1-f08e-4052-a255-d259c2ccbb8c.png">
+<img width="305" alt="Screen Shot 2022-11-30 at 7 38 59 PM" src="https://user-images.githubusercontent.com/86651172/204945333-cd065b00-cead-4410-bdfa-f15ecde6d309.png">
