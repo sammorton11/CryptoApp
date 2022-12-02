@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.samm.cryptoapp.common.Constants.COIN_ID
 import com.samm.cryptoapp.common.Resource
-import com.samm.cryptoapp.domain.use_case.get_coin_details_data.GetSingleCoinUseCase
+import com.samm.cryptoapp.domain.use_case.get_coin_details_data.GetCoinDetailsUseCase
 import com.samm.cryptoapp.presentation.crypto_details_screen.CoinDetailsState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
@@ -16,7 +16,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class CoinDetailViewModel @Inject constructor(
-    private val getCoinDetailsUseCase: GetSingleCoinUseCase,
+    private val getCoinDetailsUseCase: GetCoinDetailsUseCase,
     savedStateHandle: SavedStateHandle
 ): ViewModel() {
 

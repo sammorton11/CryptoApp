@@ -4,9 +4,12 @@ import com.samm.cryptoapp.common.Constants.BASE_URL
 import com.samm.cryptoapp.data.remote.CryptoApi
 import com.samm.cryptoapp.data.repository.CryptoRepositoryImpl
 import com.samm.cryptoapp.domain.repository.CryptoRepository
+import com.samm.cryptoapp.domain.use_case.get_coin_details_data.GetCoinDetailsUseCase
+import com.samm.cryptoapp.domain.use_case.get_coin_details_data.GetCoinDetailsUseCaseImpl
 import com.samm.cryptoapp.domain.use_case.get_coin_details_data.GetSingleCoinPriceUseCase
-import com.samm.cryptoapp.domain.use_case.get_coin_details_data.GetSingleCoinUseCase
-import com.samm.cryptoapp.domain.use_case.get_list_of_coins.GetAllCoinsUseCase
+import com.samm.cryptoapp.domain.use_case.get_coin_details_data.GetSingleCoinPriceUseCaseImpl
+import com.samm.cryptoapp.domain.use_case.get_list_of_coins.GetListOfCoinsUseCase
+import com.samm.cryptoapp.domain.use_case.get_list_of_coins.GetListOfCoinsUseCaseImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -37,17 +40,17 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun providesGetSingleCoinUseCase(repository: CryptoRepository): GetSingleCoinUseCase{
-        return GetSingleCoinUseCase(repository)
+    fun providesGetSingleCoinUseCase(repository: CryptoRepository): GetCoinDetailsUseCase {
+        return GetCoinDetailsUseCaseImpl(repository)
     }
     @Provides
     @Singleton
-    fun providesGetSingleCoinPriceUseCase(repository: CryptoRepository): GetSingleCoinPriceUseCase{
-        return GetSingleCoinPriceUseCase(repository)
+    fun providesGetSingleCoinPriceUseCase(repository: CryptoRepository): GetSingleCoinPriceUseCase {
+        return GetSingleCoinPriceUseCaseImpl(repository)
     }
     @Provides
     @Singleton
-    fun providesGetAllCoinsUseCase(repository: CryptoRepository): GetAllCoinsUseCase{
-        return GetAllCoinsUseCase(repository)
+    fun providesGetAllCoinsUseCase(repository: CryptoRepository): GetListOfCoinsUseCase {
+        return GetListOfCoinsUseCaseImpl(repository)
     }
 }

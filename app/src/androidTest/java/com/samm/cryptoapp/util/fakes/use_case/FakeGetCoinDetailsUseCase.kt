@@ -1,17 +1,17 @@
-package com.samm.cryptoapp.util.fakes_test_shared
+package com.samm.cryptoapp.util.fakes.use_case
 
 import com.samm.cryptoapp.common.Resource
 import com.samm.cryptoapp.data.remote.dto.coin_details.toCoinDetail
 import com.samm.cryptoapp.domain.model.CoinDetailsData
-import com.samm.cryptoapp.domain.use_case.get_coin_details_data.GetSingleCoinUseCase
-import com.samm.cryptoapp.fakes.FakeCryptoRepository
+import com.samm.cryptoapp.domain.use_case.get_coin_details_data.GetCoinDetailsUseCase
+import com.samm.cryptoapp.util.fakes.FakeRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
 class FakeGetCoinDetailsUseCase(
     private val isSuccessful: Boolean = true,
-    private val repository: FakeCryptoRepository = FakeCryptoRepository()
-) : GetSingleCoinUseCase(repository) {
+    private val repository: FakeRepository = FakeRepository()
+) : GetCoinDetailsUseCase {
 
     override fun invoke(id: String): Flow<Resource<CoinDetailsData>> {
         return when {

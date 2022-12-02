@@ -5,7 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.samm.cryptoapp.common.Resource
-import com.samm.cryptoapp.domain.use_case.get_list_of_coins.GetAllCoinsUseCase
+import com.samm.cryptoapp.domain.use_case.get_list_of_coins.GetListOfCoinsUseCase
 import com.samm.cryptoapp.presentation.crypto_list_screen.CoinsListState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
@@ -14,7 +14,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class CoinListViewModel @Inject constructor(
-    private val getAllCoinsUseCase: GetAllCoinsUseCase
+    private val getAllCoinsUseCase: GetListOfCoinsUseCase
 ): ViewModel() {
 
     private val _state = mutableStateOf(CoinsListState()) // not exposed because mutable
@@ -27,10 +27,6 @@ class CoinListViewModel @Inject constructor(
     // method to call the use case - put the data in the state object - then display state in the ui
     private fun getData(){
 
-        // returns the flow that emits the Resource values
-        // can call this class as a method because of overriding invoke() -- cool!
-        // then use onEach to use the Resource result in the when expression
-        // assign values to the state value
         getAllCoinsUseCase().onEach { resourceResult ->
 
             when(resourceResult){
@@ -47,5 +43,14 @@ class CoinListViewModel @Inject constructor(
                 }
             }
         }.launchIn(viewModelScope) // must launch in coroutine scope because using a flow
+    }
+
+    private var lastRefreshTime = 0
+    fun onRefreshDataEvent() {
+        val currentTime = System.currentTimeMillis()
+        if (currentTime - lastRefreshTime > (1000 * 60)) {
+            getData()
+            lastRefreshTime = currentTime.toInt()
+        }
     }
 }

@@ -10,24 +10,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
 import com.samm.cryptoapp.common.Constants.LIST_AMOUNT
-import com.samm.cryptoapp.presentation.crypto_list_screen.CoinsListState
 import com.samm.cryptoapp.presentation.navigation.Screen
-import java.util.*
+import com.samm.cryptoapp.presentation.viewmodel.CoinListViewModel
 
 @Composable
-fun CoinList(state: CoinsListState, searchTerm: String, navController: NavController, context: Context) {
+fun CoinList(navController: NavController, context: Context, viewModel: CoinListViewModel) {
 
-    // Data filtered by a search term provided in the text field -- if blank, don't search
-    val coinData = if (searchTerm.isNotBlank()) {
-        state.coins.filter { it.name.contains(searchTerm.replaceFirstChar { firstLetter ->
-            if (firstLetter.isLowerCase()) firstLetter.titlecase(Locale.ROOT) else firstLetter.toString()
-        }) }
-    } else {
-        state.coins
-    }
+    val coinData = viewModel.state.value.coins
+    Column {
+       // SearchResultsLabel(coinData, searchTerm)
 
-   Column {
-       SearchResultsLabel(coinData, searchTerm)
        LazyColumn(modifier = Modifier.fillMaxSize()) {
            // When user searched a coin, the data list will still remain in that order
            // Using the take function to only use a certain amount of coins -
@@ -52,5 +44,5 @@ fun CoinList(state: CoinsListState, searchTerm: String, navController: NavContro
                )
            }
        }
-   }
+    }
 }

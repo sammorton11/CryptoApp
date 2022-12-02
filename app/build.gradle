@@ -113,9 +113,16 @@ dependencies {
     testImplementation "androidx.navigation:navigation-testing:$nav_version"
 
     // Mockito
-    androidTestImplementation 'org.mockito:mockito-core:4.0.0'
+    androidTestImplementation 'org.mockito:mockito-core:4.8.1'
     androidTestImplementation 'org.mockito:mockito-inline:3.4.0'
     androidTestImplementation 'com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0'
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.mockito:mockito-core:4.8.1'
+    testImplementation 'org.mockito:mockito-inline:3.4.0'
+
+
+    //Mockk
+    testImplementation "io.mockk:mockk:1.13.2"
 
     // Coroutines Test
     testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4'

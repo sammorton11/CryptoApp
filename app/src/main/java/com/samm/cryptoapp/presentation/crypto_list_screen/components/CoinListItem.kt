@@ -76,8 +76,8 @@ fun CoinListItem(
                 modifier = Modifier
                     .align(CenterVertically)
                     .semantics {
-                        contentDescription = "Coin Activity"
-                        testTag = "Coin Activity Tag"
+                        contentDescription = "Coin Status"
+                        testTag = "Coin Status Tag"
                     }
             )
         }
