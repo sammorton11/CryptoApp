@@ -1,5 +1,6 @@
 package com.samm.cryptoapp.presentation.crypto_list_screen.components
 
+import android.content.Context
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.icons.Icons
@@ -9,18 +10,20 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.testTag
-import androidx.navigation.NavController
-import com.samm.cryptoapp.presentation.navigation.Screen
+import com.samm.cryptoapp.R
+import com.samm.cryptoapp.presentation.viewmodel.CoinListViewModel
 
 @Composable
-fun RefreshButton(navController: NavController) {
+fun RefreshButton(viewModel: CoinListViewModel, context: Context) {
     // Refresh Button
     IconButton(
-        onClick = { navController.navigate(Screen.CoinListScreen.route) },
+        onClick = {
+            viewModel.onRefreshDataEvent()
+        },
         modifier = Modifier
             .semantics {
                 contentDescription = "Refresh Button"
-                testTag = "Refresh Button Test Tag"
+                testTag = context.getString(R.string.refresh_button_test_tag)
             },
 
     ) {

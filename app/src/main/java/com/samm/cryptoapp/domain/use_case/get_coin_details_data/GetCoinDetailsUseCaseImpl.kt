@@ -10,7 +10,6 @@ import retrofit2.HttpException
 import java.io.IOException
 import javax.inject.Inject
 
-// Todo: Create Interfaces for Use Cases - makes testing them easier
 
 class GetCoinDetailsUseCaseImpl @Inject constructor(
     private val repository: CryptoRepository

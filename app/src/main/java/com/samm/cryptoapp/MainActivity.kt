@@ -12,23 +12,20 @@ import com.samm.cryptoapp.presentation.ui.theme.CryptoAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 /*
-   Todo (Issues - in-progress):
-        - -- Learning about MockK and Mockito to solve some of these issues
+   (Issues - in-progress):
         - -- I think some of my end-to-end tests are actually integration tests? --
-        - -- How to test network error? --
         - -- Organizing tests into separated inner classes throws errors --
         - -- Test explore and social media links not showing up in semantics tree and are failing isDisplayed tests but are verified
-        - to be displayed when manual testing - they pass assertExists though - weird --
+        -    to be displayed when manual testing - they pass assertExists though - weird --
         - -- isNotDisplayed() tests still fail after collapsing card and text is not displayed - confused
 
         Todo:
-         - -- Issue sharing fakes/test-doubles between androidTest and test packages
-         - -- Data models from production code are used in fakes, so when using a separate library module
-         - containing the fake data, and then importing that library module to share between packages,
-         - the separate library module can't see that production code data models. ugh lol. --
-         - -- Need to figure out how to test the progress bar
-         - -- Is there a way to separate the Test Rules into a separate file to share between tests?
-         - don't want to have keep writing those for each test. --
+         - Test progress bar
+         - Test Network Error
+         - Replace test tags with string resources
+         - Finish integration tests
+         - Clean up warnings
+
  */
 
 @AndroidEntryPoint

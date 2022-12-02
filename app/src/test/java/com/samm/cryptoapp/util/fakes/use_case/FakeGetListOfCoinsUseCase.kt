@@ -1,9 +1,10 @@
-package com.samm.cryptoapp.util.fakes_test_shared
+package com.samm.cryptoapp.util.fakes.use_case
 
 import com.samm.cryptoapp.common.Resource
 import com.samm.cryptoapp.data.remote.dto.toCoin
 import com.samm.cryptoapp.domain.model.CoinData
 import com.samm.cryptoapp.domain.use_case.get_list_of_coins.GetListOfCoinsUseCase
+import com.samm.cryptoapp.util.fakes.FakeCryptoRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 

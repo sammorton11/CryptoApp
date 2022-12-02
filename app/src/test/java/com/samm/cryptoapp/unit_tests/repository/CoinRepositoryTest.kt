@@ -2,64 +2,86 @@ package com.samm.cryptoapp.unit_tests.repository
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.google.common.truth.Truth.assertThat
-import com.samm.cryptoapp.data.remote.CryptoApi
 import com.samm.cryptoapp.data.remote.dto.CoinDto
 import com.samm.cryptoapp.data.remote.dto.coin_details.toCoinDetail
 import com.samm.cryptoapp.data.remote.dto.price_details.toCoinPriceDetail
 import com.samm.cryptoapp.data.remote.dto.toCoin
-import com.samm.cryptoapp.data.repository.CryptoRepositoryImpl
 import com.samm.cryptoapp.domain.model.CoinData
 import com.samm.cryptoapp.domain.model.CoinDetailsData
 import com.samm.cryptoapp.domain.model.CoinPriceDetailsData
-import com.samm.cryptoapp.domain.repository.CryptoRepository
-import io.mockk.mockk
+import com.samm.cryptoapp.util.fakes.FakeCryptoRepository
 import kotlinx.coroutines.runBlocking
-import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 
 
-// COMPLETE
 @RunWith(AndroidJUnit4::class)
 class CoinRepositoryTest {
 
-    val data = mockk<CryptoApi>(relaxed = true)
-    lateinit var fakeRepository: CryptoRepository
+    private var repository = FakeCryptoRepository()
+    private val coinListDtoData = runBlocking { repository.getCoinData() }
+    private val coinDetailsDtoData = runBlocking { repository.getCoinDetails("id") }
+    private val coinPriceDetailsDtoData = runBlocking { repository.getPriceCoinDetails("id") }
 
-    @Before
-    fun setUp(): Unit = runBlocking {
-        fakeRepository = CryptoRepositoryImpl(data)
+    @Test
+    fun test_that_getCoinData_is_not_empty(): Unit = runBlocking {
+        assertThat(coinListDtoData).isNotEmpty()
+    }
+    @Test
+    fun test_that_getCoinDetails_is_not_empty(): Unit = runBlocking {
+        assertThat(coinDetailsDtoData).isNotNull()
+    }
+    @Test
+    fun test_that_getPriceCoinDetails_is_not_empty(): Unit = runBlocking {
+        assertThat(coinPriceDetailsDtoData).isNotNull()
     }
 
     @Test
-    fun test_that_repository_is_not_empty(): Unit = runBlocking {
-        assertThat(fakeRepository).isNotNull()
-    }
-
-    @Test
-    fun test_if_repository_data_from_DTO_exists(): Unit = runBlocking {
-        val coinListDtoData = fakeRepository.getCoinData()
+    fun test_if_getCoinData_has_correct_data() {
 
         coinListDtoData.forEach {
             assertThat(it).isNotNull()
+
             assertThat(it.id).isNotNull()
+            assertThat(it.id).isEqualTo("id")
+
             assertThat(it.name).isNotNull()
+            assertThat(it.name).isEqualTo("Test Coin")
+
             assertThat(it.is_active).isNotNull()
+            assertThat(it.is_active).isEqualTo(true)
+
             assertThat(it.rank).isNotNull()
+            assertThat(it.rank).isEqualTo(1)
+
             assertThat(it.symbol).isNotNull()
+            assertThat(it.symbol).isEqualTo("Test Symbol")
+
             assertThat(it.is_new).isNotNull()
+            assertThat(it.is_new).isEqualTo(true)
+
             assertThat(it.type).isNotNull()
+            assertThat(it.type).isEqualTo("Test Type")
         }
+
+
+    }
+
+    @Test
+    fun test_if_getCoinDetails_has_correct_data(){
+        assertThat(coinDetailsDtoData.id).isNotNull()
+
+
+
+    }
+    @Test
+    fun test_if_getPriceCoinDetails_has_correct_data(){
+
     }
 
 
     @Test
-    fun test_Dto_conversions(): Unit = runBlocking {
-        val coinListDtoData = fakeRepository.getCoinData()
-
-        // these do not need actual ID's - we are just testing that the DTOs are converted correctly
-        val coinDetailsDtoData = fakeRepository.getCoinDetails("")
-        val coinPriceDtoData = fakeRepository.getPriceCoinDetails("")
+    fun test_Dto_conversions() {
 
         coinListDtoData.map {
             val conversion =  it.toCoin()
@@ -70,7 +92,8 @@ class CoinRepositoryTest {
         val conversionDetails = coinDetailsDtoData.toCoinDetail()
         assertThat(conversionDetails).isInstanceOf(CoinDetailsData::class.java)
 
-        val conversionPrice = coinPriceDtoData.toCoinPriceDetail()
+        val conversionPrice = coinPriceDetailsDtoData.toCoinPriceDetail()
         assertThat(conversionPrice).isInstanceOf(CoinPriceDetailsData::class.java)
     }
+
 }
