@@ -1,4 +1,4 @@
-package com.samm.cryptoapp.data.remote.dto.price_details
+package com.samm.cryptoapp.data.dto.price_details
 
 import com.samm.cryptoapp.domain.model.CoinPriceDetailsData
 

@@ -1,23 +1,27 @@
-package com.samm.cryptoapp.data.repository
+package com.samm.cryptoapp.util.fakes.repository
 
 import com.samm.cryptoapp.data.dto.CoinDto
 import com.samm.cryptoapp.data.dto.coin_details.CoinDetailsDto
 import com.samm.cryptoapp.data.dto.price_details.CoinPriceDetailsDtoItem
-import com.samm.cryptoapp.data.remote.CryptoApi
 import com.samm.cryptoapp.domain.repository.CryptoRepository
-import javax.inject.Inject
+import com.samm.cryptoapp.util.fakes.data.FakeDto.fakeCoinDetails
+import com.samm.cryptoapp.util.fakes.data.FakeDto.fakeCoinPriceDetails
+import com.samm.cryptoapp.util.fakes.data.FakeDto.fakeCoins
 
-class CryptoRepositoryImpl @Inject constructor(private val api: CryptoApi): CryptoRepository {
+class FakeRepository : CryptoRepository {
 
     override suspend fun getCoinData(): List<CoinDto> {
-        return api.getCoinData()
+
+        return fakeCoins
     }
 
     override suspend fun getCoinDetails(id: String): CoinDetailsDto {
-        return api.getCoinById(id)
+
+        return fakeCoinDetails
     }
 
     override suspend fun getPriceCoinDetails(id: String): CoinPriceDetailsDtoItem {
-        return api.getCoinPriceById(id)
+
+        return fakeCoinPriceDetails
     }
 }

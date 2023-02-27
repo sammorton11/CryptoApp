@@ -1,4 +1,4 @@
-package com.samm.cryptoapp.data.remote.dto.coin_details
+package com.samm.cryptoapp.data.dto.coin_details
 
 data class Stats(
     val contributors: Int?,

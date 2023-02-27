@@ -34,7 +34,6 @@ fun CoinListScreen(
         }
     ) {
         Column {
-
             CoinListTopBar(navController, viewModel, context)
             // List of Coins
             CoinList(

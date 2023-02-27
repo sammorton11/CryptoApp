@@ -1,10 +1,10 @@
 package com.samm.cryptoapp.util.fakes.use_case
 
 import com.samm.cryptoapp.common.Resource
-import com.samm.cryptoapp.data.remote.dto.coin_details.toCoinDetail
+import com.samm.cryptoapp.data.dto.coin_details.toCoinDetail
 import com.samm.cryptoapp.domain.model.CoinDetailsData
 import com.samm.cryptoapp.domain.use_case.get_coin_details_data.GetCoinDetailsUseCase
-import com.samm.cryptoapp.util.fakes.FakeRepository
+import com.samm.cryptoapp.util.fakes.repository.FakeRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 

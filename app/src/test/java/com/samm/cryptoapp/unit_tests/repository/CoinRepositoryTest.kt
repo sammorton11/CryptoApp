@@ -2,14 +2,14 @@ package com.samm.cryptoapp.unit_tests.repository
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.google.common.truth.Truth.assertThat
-import com.samm.cryptoapp.data.remote.dto.CoinDto
-import com.samm.cryptoapp.data.remote.dto.coin_details.toCoinDetail
-import com.samm.cryptoapp.data.remote.dto.price_details.toCoinPriceDetail
-import com.samm.cryptoapp.data.remote.dto.toCoin
+import com.samm.cryptoapp.data.dto.CoinDto
+import com.samm.cryptoapp.data.dto.coin_details.toCoinDetail
+import com.samm.cryptoapp.data.dto.price_details.toCoinPriceDetail
+import com.samm.cryptoapp.data.dto.toCoin
 import com.samm.cryptoapp.domain.model.CoinData
 import com.samm.cryptoapp.domain.model.CoinDetailsData
 import com.samm.cryptoapp.domain.model.CoinPriceDetailsData
-import com.samm.cryptoapp.util.fakes.FakeCryptoRepository
+import com.samm.cryptoapp.util.fakes.repository.FakeRepository
 import kotlinx.coroutines.runBlocking
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -18,7 +18,7 @@ import org.junit.runner.RunWith
 @RunWith(AndroidJUnit4::class)
 class CoinRepositoryTest {
 
-    private var repository = FakeCryptoRepository()
+    private var repository = FakeRepository()
     private val coinListDtoData = runBlocking { repository.getCoinData() }
     private val coinDetailsDtoData = runBlocking { repository.getCoinDetails("id") }
     private val coinPriceDetailsDtoData = runBlocking { repository.getPriceCoinDetails("id") }

@@ -46,6 +46,7 @@ class CoinListViewModel @Inject constructor(
     }
 
     private var lastRefreshTime = 0
+
     fun onRefreshDataEvent() {
         val currentTime = System.currentTimeMillis()
         if (currentTime - lastRefreshTime > (1000 * 60)) {

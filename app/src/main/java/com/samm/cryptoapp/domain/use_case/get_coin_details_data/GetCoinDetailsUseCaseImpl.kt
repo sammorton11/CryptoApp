@@ -1,7 +1,7 @@
 package com.samm.cryptoapp.domain.use_case.get_coin_details_data
 
 import com.samm.cryptoapp.common.Resource
-import com.samm.cryptoapp.data.remote.dto.coin_details.toCoinDetail
+import com.samm.cryptoapp.data.dto.coin_details.toCoinDetail
 import com.samm.cryptoapp.domain.model.CoinDetailsData
 import com.samm.cryptoapp.domain.repository.CryptoRepository
 import kotlinx.coroutines.flow.Flow
@@ -16,7 +16,6 @@ class GetCoinDetailsUseCaseImpl @Inject constructor(
 ): GetCoinDetailsUseCase {
 
     override operator fun invoke(id: String): Flow<Resource<CoinDetailsData>> = flow {
-
         try {
             emit(Resource.Loading())
             val coin = repository.getCoinDetails(id).toCoinDetail()

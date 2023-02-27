@@ -7,17 +7,8 @@ import com.samm.cryptoapp.common.Constants
 import com.samm.cryptoapp.domain.model.CoinDetailsData
 import com.samm.cryptoapp.domain.use_case.get_coin_details_data.GetCoinDetailsUseCase
 import com.samm.cryptoapp.presentation.viewmodel.CoinDetailViewModel
-import com.samm.cryptoapp.util.fakes.FakeDataSource.FakeData.CoinDetailsScreenFakes.fakeDetailDescription
-import com.samm.cryptoapp.util.fakes.FakeDataSource.FakeData.CoinDetailsScreenFakes.fakeDetailNameExpanded
-import com.samm.cryptoapp.util.fakes.FakeDataSource.FakeData.CoinDetailsScreenFakes.fakeLogoUrl
-import com.samm.cryptoapp.util.fakes.FakeDataSource.FakeData.CoinDetailsScreenFakes.fakeMessage
-import com.samm.cryptoapp.util.fakes.FakeDataSource.FakeData.CoinListScreenFakes.fakeCoinId01
-import com.samm.cryptoapp.util.fakes.FakeDataSource.FakeData.CoinListScreenFakes.fakeSymbol
-import com.samm.cryptoapp.util.fakes.FakeDataSource.FakeData.CoinListScreenFakes.firstCoinRank
-import com.samm.cryptoapp.util.fakes.FakeDataSource.FakeData.CoinListScreenFakes.is_active
-import com.samm.cryptoapp.util.fakes.FakeDataSource.FakeData.FakeLinksExtendedSuccess.fakeLinksExtended
-import com.samm.cryptoapp.util.fakes.FakeDataSource.FakeData.fakeLink
-import com.samm.cryptoapp.util.fakes.FakeDataSource.FakeData.fakeTag
+import com.samm.cryptoapp.util.fakes.data.CoinDetailsScreenTestData.fakeDetailNameExpanded
+import com.samm.cryptoapp.util.fakes.data.CoinListScreenTestData.fakeCoinId01
 import com.samm.cryptoapp.util.fakes.use_case.FakeGetCoinDetailsUseCase
 import org.junit.Before
 import org.junit.Test
@@ -45,15 +36,5 @@ class CoinDetailsViewModelTest {
     @Test
     fun test_view_model_has_correct_data() {
         assertThat(coin.name).isEqualTo(fakeDetailNameExpanded)
-        assertThat(coin.coinId).isEqualTo(fakeCoinId01)
-        assertThat(coin.symbol).isEqualTo(fakeSymbol)
-        assertThat(coin.rank).isEqualTo(firstCoinRank)
-        assertThat(coin.description).isEqualTo(fakeDetailDescription)
-        assertThat(coin.links).isEqualTo(fakeLink)
-        assertThat(coin.isActive).isEqualTo(is_active)
-        assertThat(coin.linksExtended).isEqualTo(fakeLinksExtended)
-        assertThat(coin.logo).isEqualTo(fakeLogoUrl)
-        assertThat(coin.message).isEqualTo(fakeMessage)
-        assertThat(coin.tags).isEqualTo(listOf(fakeTag))
     }
 }

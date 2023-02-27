@@ -5,11 +5,11 @@ import com.google.common.truth.Truth.assertThat
 import com.samm.cryptoapp.domain.model.CoinData
 import com.samm.cryptoapp.domain.use_case.get_list_of_coins.GetListOfCoinsUseCase
 import com.samm.cryptoapp.presentation.viewmodel.CoinListViewModel
-import com.samm.cryptoapp.util.fakes.FakeDataSource.FakeData.CoinDetailsScreenFakes.fakeDetailNameExpanded
-import com.samm.cryptoapp.util.fakes.FakeDataSource.FakeData.CoinListScreenFakes.fakeCoinId01
-import com.samm.cryptoapp.util.fakes.FakeDataSource.FakeData.CoinListScreenFakes.fakeSymbol
-import com.samm.cryptoapp.util.fakes.FakeDataSource.FakeData.CoinListScreenFakes.firstCoinRank
-import com.samm.cryptoapp.util.fakes.FakeDataSource.FakeData.CoinListScreenFakes.is_active
+import com.samm.cryptoapp.util.fakes.data.CoinDetailsScreenTestData.fakeDetailNameExpanded
+import com.samm.cryptoapp.util.fakes.data.CoinListScreenTestData.fakeCoinId01
+import com.samm.cryptoapp.util.fakes.data.CoinListScreenTestData.fakeSymbol
+import com.samm.cryptoapp.util.fakes.data.CoinListScreenTestData.firstCoinRank
+import com.samm.cryptoapp.util.fakes.data.CoinListScreenTestData.is_active
 import com.samm.cryptoapp.util.fakes.use_case.FakeGetListOfCoinsUseCase
 import org.junit.Before
 import org.junit.Test

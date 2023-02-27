@@ -1,6 +1,6 @@
 package com.samm.cryptoapp.domain.model
 
-import com.samm.cryptoapp.data.remote.dto.price_details.Quotes
+import com.samm.cryptoapp.data.dto.price_details.Quotes
 
 data class CoinPriceDetailsData(
     val beta_value: Double,

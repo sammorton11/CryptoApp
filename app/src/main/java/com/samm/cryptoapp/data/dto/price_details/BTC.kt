@@ -1,4 +1,4 @@
-package com.samm.cryptoapp.data.remote.dto.price_details
+package com.samm.cryptoapp.data.dto.price_details
 
 data class BTC(
     val ath_date: Any,

@@ -3,9 +3,9 @@ package com.samm.cryptoapp.unit_tests.use_case
 import com.google.common.truth.Truth.assertThat
 import com.samm.cryptoapp.common.Resource
 import com.samm.cryptoapp.domain.model.CoinDetailsData
-import com.samm.cryptoapp.util.fakes.FakeDataSource.FakeData.CoinDetailsScreenFakes.fakeDetailDescription
-import com.samm.cryptoapp.util.fakes.FakeDataSource.FakeData.CoinDetailsScreenFakes.fakeDetailNameCollapsed
-import com.samm.cryptoapp.util.fakes.FakeDataSource.FakeData.CoinListScreenFakes.fakeCoinId01
+import com.samm.cryptoapp.util.fakes.data.CoinDetailsScreenTestData.fakeDetailDescription
+import com.samm.cryptoapp.util.fakes.data.CoinDetailsScreenTestData.fakeDetailNameCollapsed
+import com.samm.cryptoapp.util.fakes.data.CoinListScreenTestData.fakeCoinId01
 import com.samm.cryptoapp.util.fakes.use_case.FakeGetCoinDetailsUseCase
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
@@ -13,7 +13,7 @@ import kotlinx.coroutines.runBlocking
 import org.junit.Before
 import org.junit.Test
 
-open class GetCoinDetailsUseCaseTest {
+class GetCoinDetailsUseCaseTest {
 
     private var getCoins: FakeGetCoinDetailsUseCase = FakeGetCoinDetailsUseCase()
     private lateinit var fakeUseCaseFlow: Flow<Resource<CoinDetailsData>>

@@ -12,9 +12,6 @@ import com.samm.cryptoapp.presentation.ui.theme.CryptoAppTheme
 import com.samm.cryptoapp.presentation.ui.theme.DarkGray
 import com.samm.cryptoapp.presentation.ui.theme.TextWhite
 import com.samm.cryptoapp.util.BaseTest
-import com.samm.cryptoapp.util.fakes.FakeDataSource.FakeData.CoinListScreenFakes.active_text
-import com.samm.cryptoapp.util.fakes.FakeDataSource.FakeData.CoinListScreenFakes.expectedCardData
-import com.samm.cryptoapp.util.fakes.FakeDataSource.FakeData.CoinListScreenFakes.test_title
 import com.samm.cryptoapp.util.fakes.TestTags.CoinDetailsTags.BackButtonTestTag
 import com.samm.cryptoapp.util.fakes.TestTags.CoinDetailsTags.CoinDetailsScreenTag
 import com.samm.cryptoapp.util.fakes.TestTags.CoinListItemTags.CoinCardLabelsTag
@@ -24,6 +21,9 @@ import com.samm.cryptoapp.util.fakes.TestTags.CoinListScreenTags.CoinListScreenT
 import com.samm.cryptoapp.util.fakes.TestTags.CoinListScreenTags.RefreshButtonTestTag
 import com.samm.cryptoapp.util.fakes.TestTags.CoinListScreenTags.TitleTestTag
 import com.samm.cryptoapp.util.fakes.TestTags.CoinListScreenTags.TopBarTestTag
+import com.samm.cryptoapp.util.fakes.data.CoinListScreenTestData.active_text
+import com.samm.cryptoapp.util.fakes.data.CoinListScreenTestData.expectedCardData
+import com.samm.cryptoapp.util.fakes.data.CoinListScreenTestData.test_title
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import dagger.hilt.android.testing.UninstallModules

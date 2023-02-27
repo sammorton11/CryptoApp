@@ -14,7 +14,6 @@ import dagger.hilt.android.AndroidEntryPoint
 /*
    (Issues - in-progress):
         - -- I think some of my end-to-end tests are actually integration tests? --
-        - -- Organizing tests into separated inner classes throws errors --
         - -- Test explore and social media links not showing up in semantics tree and are failing isDisplayed tests but are verified
         -    to be displayed when manual testing - they pass assertExists though - weird --
         - -- isNotDisplayed() tests still fail after collapsing card and text is not displayed - confused
@@ -24,7 +23,6 @@ import dagger.hilt.android.AndroidEntryPoint
          - Test Network Error
          - Replace test tags with string resources
          - Finish integration tests
-         - Clean up warnings
 
  */
 

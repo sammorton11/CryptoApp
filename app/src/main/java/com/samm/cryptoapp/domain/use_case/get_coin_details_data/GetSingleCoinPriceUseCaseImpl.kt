@@ -1,7 +1,7 @@
 package com.samm.cryptoapp.domain.use_case.get_coin_details_data
 
 import com.samm.cryptoapp.common.Resource
-import com.samm.cryptoapp.data.remote.dto.price_details.toCoinPriceDetail
+import com.samm.cryptoapp.data.dto.price_details.toCoinPriceDetail
 import com.samm.cryptoapp.domain.model.CoinPriceDetailsData
 import com.samm.cryptoapp.domain.repository.CryptoRepository
 import kotlinx.coroutines.flow.Flow

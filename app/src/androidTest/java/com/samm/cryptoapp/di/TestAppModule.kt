@@ -7,7 +7,7 @@ import com.samm.cryptoapp.domain.use_case.get_coin_details_data.GetSingleCoinPri
 import com.samm.cryptoapp.domain.use_case.get_coin_details_data.GetSingleCoinPriceUseCaseImpl
 import com.samm.cryptoapp.domain.use_case.get_list_of_coins.GetListOfCoinsUseCase
 import com.samm.cryptoapp.domain.use_case.get_list_of_coins.GetListOfCoinsUseCaseImpl
-import com.samm.cryptoapp.util.fakes.FakeRepository
+import com.samm.cryptoapp.util.fakes.repository.FakeRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.components.SingletonComponent

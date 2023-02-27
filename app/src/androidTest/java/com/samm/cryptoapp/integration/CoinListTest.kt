@@ -65,9 +65,6 @@ class CoinListTest: BaseTest() {
     @Test
     fun test_data_exists() {
         wait(composeTestRule)
-        Thread.sleep(5000)
-//        Log.d("DATA: Coin Data name", "${coins.first().name}")
-//        println("${coins.first().name}")
         composeTestRule.onNodeWithText(coins.first().name).assertIsDisplayed()
     }
 }

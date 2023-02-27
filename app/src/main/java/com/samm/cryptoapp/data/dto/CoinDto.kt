@@ -1,4 +1,4 @@
-package com.samm.cryptoapp.data.remote.dto
+package com.samm.cryptoapp.data.dto
 
 import com.google.gson.annotations.SerializedName
 import com.samm.cryptoapp.domain.model.CoinData
